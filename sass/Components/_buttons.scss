@@ -1,0 +1,25 @@
+.button--static {
+    cursor: pointer;
+    color: white;
+    background-color: #901C1C;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 2em;
+}
+
+.tag--static {
+    cursor: pointer;
+    color: #901C1C;
+    background-color: #FAFAFA;
+    border: 0.2px solid lightgrey;
+    border-radius: 20px;
+    padding: 5px 5px;
+    font-size: 0.7em;
+    width: auto;
+    &:hover {
+        transition: all 1s;
+        color: white;
+        background-color: #901C1C;
+    }
+}

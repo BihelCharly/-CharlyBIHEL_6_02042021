@@ -1,0 +1,22 @@
+{
+    "name": "charlybihel_6_02042021",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "sass": "sass --watch ./sass/style.scss:css/style.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BihelCharly/CharlyBIHEL_6_02042021.git"
+    },
+    "author": "Charly",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/BihelCharly/CharlyBIHEL_6_02042021/issues"
+    },
+    "homepage": "https://github.com/BihelCharly/CharlyBIHEL_6_02042021#readme",
+    "dependencies": {
+        "sass": "^1.32.8"
+    }
+}

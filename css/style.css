@@ -1,0 +1,240 @@
+body {
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+body * {
+  box-sizing: border-box;
+  font-family: "DM regular";
+  font-size: 1em;
+}
+
+@media (max-width: 1025px) {
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (min-width: 2000px) {
+  body {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@font-face {
+  font-family: "DM regular";
+  src: url("./../public/Fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DM medium";
+  src: url("./../public/Fonts/DMSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DM bold";
+  src: url("./../public/Fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+.button--static {
+  cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 30px;
+  font-size: 2em;
+}
+
+.tag--static {
+  cursor: pointer;
+  color: #901C1C;
+  background-color: #FAFAFA;
+  border: 0.2px solid lightgrey;
+  border-radius: 20px;
+  padding: 5px 5px;
+  font-size: 0.7em;
+  width: auto;
+}
+.tag--static:hover {
+  transition: all 1s;
+  color: white;
+  background-color: #901C1C;
+}
+
+.cards-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cards-block .cards {
+  width: 33%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.cards-block .cards:hover .photographer__photo {
+  box-shadow: 0px 6px 9px 0px #525252;
+}
+
+.photographers {
+  padding: 100px 0px 50px 0px;
+}
+.photographers h1 {
+  color: #901C1C;
+  font-size: 2em;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40px;
+  right: 280px;
+  margin-top: 0px;
+}
+.photographers h2 {
+  color: #D3573C;
+  font-size: 1.8em;
+  letter-spacing: 1.3px;
+  margin-bottom: 3px;
+}
+.photographers h3 {
+  color: #901C1C;
+  font-size: 0.9em;
+  font-family: "DM Medium";
+}
+.photographers h4 {
+  color: #525252;
+  font-size: 0.7em;
+  font-family: "DM Medium";
+}
+.photographers p {
+  font-size: 0.7em;
+}
+.photographers .photographer__photo {
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+  border: none;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: 0px 5px 8px 0px lightgrey;
+}
+.photographers .photographer__description * {
+  padding: 3px 0px 3px 0px;
+  margin: 0px;
+}
+.photographers .tag-list {
+  width: auto;
+  justify-content: center;
+  padding: 0px;
+}
+.photographers .tag-list .tag--static {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+@media (max-width: 1025px) {
+  .photographers {
+    padding: 0px;
+  }
+  .photographers h1 {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 0.8em;
+  }
+
+  .cards-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cards-block .cards {
+    width: 100%;
+  }
+}
+@media (min-width: 2000px) {
+  .photographers {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .photographers h1 {
+    font-size: 2.3em;
+    position: absolute;
+    top: 40px;
+    right: 500px;
+    margin-top: 0px;
+  }
+}
+.header {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0px 25px 0px;
+}
+.header .header__title {
+  width: 35%;
+  text-align: center;
+  color: #901C1C;
+  font-size: 3rem;
+}
+.header .header__title .title {
+  text-decoration: none;
+  font-family: "DM bold";
+  letter-spacing: 1px;
+}
+.header .header__title .title:visited {
+  color: inherit;
+}
+
+.tag-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 0px;
+}
+.tag-list .tag--static {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+@media (max-width: 1025px) {
+  .header {
+    width: 100%;
+    padding-top: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .header .header__title {
+    width: 100%;
+    font-size: 2em;
+    text-align: left;
+  }
+  .header .header__navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header .tag-list {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-gap: 6px 0px;
+  }
+  .header .tag-list .tag--static {
+    padding: 1px 4px;
+  }
+}
+/* COLORS */
+
+/*# sourceMappingURL=style.css.map */
