@@ -1,7 +1,21 @@
-@import './Base/_body';
-@import './Base/_fonts';
-@import './Components/_buttons';
-@import './Components/_photographes';
+/* UTILS */
+
+@import "./Utils/_variables";
+@import "./Utils/_mixins";
+
+/* LAYOUTS */
+
 @import './Layouts/_footer';
 @import './Layouts/_header';
-@import "./Utils/_variables";
+
+/* COMPONENTS */
+
+@import './Components/_buttons';
+@import './Components/_gallery';
+@import './Components/_photographers';
+@import './Components/_profile';
+
+/* BASE */
+
+@import './Base/_body';
+@import './Base/_fonts';

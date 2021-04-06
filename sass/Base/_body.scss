@@ -9,6 +9,31 @@ body {
         font-family: "DM regular";
         font-size: 1em;
     }
+    a {
+        text-decoration: none;
+        &:visited {
+            color: inherit;
+        }
+    }
+}
+
+.sticky-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    width: 300px;
+    font-size: 1.4em;
+    color: black;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0px 0px;
+    padding: 20px 0px 20px 0px;
+    & span {
+        font-family: "DM medium";
+    }
 }
 
 @media (max-width: 1025px) {
@@ -18,7 +43,7 @@ body {
     }
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 1921px) {
     body {
         margin-left: 10%;
         margin-right: 10%;

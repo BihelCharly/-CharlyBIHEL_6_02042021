@@ -1,0 +1,94 @@
+.gallery {
+    padding: 50px 0px 50px 0px;
+    &>label {
+        font-size: 1.1em;
+        font-family: "DM bold";
+        padding-right: 25px;
+    }
+    .grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 50px;
+        row-gap: 30px;
+        .grid-card {
+            width: 33%;
+            display: grid;
+            grid-template-columns: 45% 13% 11% 5%;
+            color: $secondary-color-ft;
+            font-size: 1.6em;
+            margin-top: 0px;
+            &:hover {
+                .card__photo {
+                    transition: box-shadow 0.5s ease-in;
+                    box-shadow: 0px 10px 8px 1px $alt-color-ft;
+                }
+            }
+            &:nth-child(1),
+            &:nth-child(4) {
+                justify-content: left;
+            }
+            &:nth-child(2),
+            &:nth-child(5) {
+                justify-content: center;
+            }
+            &:nth-child(3),
+            &:nth-child(6) {
+                justify-content: right;
+            }
+            .card__photo {
+                grid-column: 1/5;
+                grid-row: 1;
+                width: 375px;
+                height: 350px;
+                object-fit: cover;
+                border: none;
+                border-radius: 5px;
+            }
+            .card__title {
+                grid-column: 1;
+                grid-row: 2;
+                align-self: center;
+                text-align: left;
+            }
+            .card__price {
+                grid-column: 2;
+                grid-row: 2;
+                text-align: center;
+                font-family: "DM medium";
+            }
+            .card__likes {
+                grid-column: 3;
+                grid-row: 2;
+                text-align: right;
+                font-family: "DM medium";
+            }
+            .fa-heart {
+                grid-column: 4;
+                grid-row: 2;
+                text-align: right;
+                align-self: center;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (min-width: 1921px) {
+    .grid {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .gallery {
+        .grid {
+            .grid-card {
+                .card__photo {
+                    width: 475px;
+                    height: 440px;
+                }
+            }
+        }
+    }
+}

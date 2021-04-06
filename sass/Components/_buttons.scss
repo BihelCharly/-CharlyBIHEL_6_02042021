@@ -1,17 +1,26 @@
 .button--static {
     cursor: pointer;
+    width: 170px;
     color: white;
-    background-color: #901C1C;
+    font-family: "Dm bold";
+    font-size: 1.2em;
+    background-color: $primary-color-bg;
     border: none;
-    border-radius: 15px;
-    padding: 15px 30px;
-    font-size: 2em;
+    border-radius: 5px;
+    align-self: center;
+    padding: 20px 8px;
+    &:hover,
+     :focus,
+    &:focus:not(:active) {
+        transition-duration: 0.2s;
+        transform: scale(1.1) translate(0%, 0%);
+    }
 }
 
 .tag--static {
     cursor: pointer;
-    color: #901C1C;
-    background-color: #FAFAFA;
+    color: $secondary-color-ft;
+    background-color: white;
     border: 0.2px solid lightgrey;
     border-radius: 20px;
     padding: 5px 5px;
@@ -20,6 +29,19 @@
     &:hover {
         transition: all 1s;
         color: white;
-        background-color: #901C1C;
+        background-color: $secondary-color-ft;
     }
+}
+
+.filter-list {
+    cursor: pointer;
+    width: 170px;
+    color: white;
+    font-family: "Dm bold";
+    font-size: 1.2em;
+    background-color: $primary-color-bg;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    appearance: none;
 }

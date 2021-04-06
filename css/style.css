@@ -1,60 +1,118 @@
-body {
-  background-color: white;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin-left: 10%;
-  margin-right: 10%;
+/* UTILS */
+/* COLORS */
+/* LAYOUTS */
+footer {
+  padding: 50px 0px 50px 0px;
+  text-align: center;
 }
-body * {
-  box-sizing: border-box;
-  font-family: "DM regular";
+footer span {
+  font-family: "DM bold";
   font-size: 1em;
 }
 
-@media (max-width: 1025px) {
-  body {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+.header {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding: 25px 0px 25px 0px;
 }
-@media (min-width: 2000px) {
-  body {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
+.header .header__title {
+  width: 40%;
+  text-align: right;
+  color: #901C1C;
+  font-size: 3rem;
 }
-@font-face {
-  font-family: "DM regular";
-  src: url("./../public/Fonts/DMSans-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "DM medium";
-  src: url("./../public/Fonts/DMSans-Medium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
+.header .header__title .title {
+  text-decoration: none;
   font-family: "DM bold";
-  src: url("./../public/Fonts/DMSans-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
+  letter-spacing: 1px;
 }
+.header .header__title .title:visited {
+  color: inherit;
+}
+.header .header__navbar {
+  width: 100%;
+}
+.header .photographer--page {
+  width: 100%;
+  text-align: left;
+}
+
+.photographer--page {
+  width: 100%;
+  text-align: left;
+}
+
+.tag-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0px;
+}
+.tag-list .tag--static {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+@media (max-width: 1025px) {
+  .header {
+    width: 100%;
+    padding-top: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .header .header__title {
+    width: 100%;
+    font-size: 2em;
+    text-align: left;
+  }
+  .header .header__navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header .tag-list {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-gap: 6px 0px;
+  }
+  .header .tag-list .tag--static {
+    padding: 1px 4px;
+  }
+}
+@media (min-width: 1981px) {
+  .header .header__title {
+    font-size: 4em;
+  }
+}
+/* COMPONENTS */
 .button--static {
   cursor: pointer;
+  width: 170px;
   color: white;
+  font-family: "Dm bold";
+  font-size: 1.2em;
   background-color: #901C1C;
   border: none;
-  border-radius: 15px;
-  padding: 15px 30px;
-  font-size: 2em;
+  border-radius: 5px;
+  align-self: center;
+  padding: 20px 8px;
+}
+.button--static:hover,
+.button--static :focus, .button--static:focus:not(:active) {
+  transition-duration: 0.2s;
+  transform: scale(1.1) translate(0%, 0%);
 }
 
 .tag--static {
   cursor: pointer;
   color: #901C1C;
-  background-color: #FAFAFA;
+  background-color: white;
   border: 0.2px solid lightgrey;
   border-radius: 20px;
   padding: 5px 5px;
@@ -67,11 +125,108 @@ body * {
   background-color: #901C1C;
 }
 
+.filter-list {
+  cursor: pointer;
+  width: 170px;
+  color: white;
+  font-family: "Dm bold";
+  font-size: 1.2em;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  appearance: none;
+}
+
+.gallery {
+  padding: 50px 0px 50px 0px;
+}
+.gallery > label {
+  font-size: 1.1em;
+  font-family: "DM bold";
+  padding-right: 25px;
+}
+.gallery .grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 50px;
+  row-gap: 30px;
+}
+.gallery .grid .grid-card {
+  width: 33%;
+  display: grid;
+  grid-template-columns: 45% 13% 11% 5%;
+  color: #901C1C;
+  font-size: 1.6em;
+  margin-top: 0px;
+}
+.gallery .grid .grid-card:hover .card__photo {
+  transition: box-shadow 0.5s ease-in;
+  box-shadow: 0px 10px 8px 1px #525252;
+}
+.gallery .grid .grid-card:nth-child(1), .gallery .grid .grid-card:nth-child(4) {
+  justify-content: left;
+}
+.gallery .grid .grid-card:nth-child(2), .gallery .grid .grid-card:nth-child(5) {
+  justify-content: center;
+}
+.gallery .grid .grid-card:nth-child(3), .gallery .grid .grid-card:nth-child(6) {
+  justify-content: right;
+}
+.gallery .grid .grid-card .card__photo {
+  grid-column: 1/5;
+  grid-row: 1;
+  width: 375px;
+  height: 350px;
+  object-fit: cover;
+  border: none;
+  border-radius: 5px;
+}
+.gallery .grid .grid-card .card__title {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  text-align: left;
+}
+.gallery .grid .grid-card .card__price {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  font-family: "DM medium";
+}
+.gallery .grid .grid-card .card__likes {
+  grid-column: 3;
+  grid-row: 2;
+  text-align: right;
+  font-family: "DM medium";
+}
+.gallery .grid .grid-card .fa-heart {
+  grid-column: 4;
+  grid-row: 2;
+  text-align: right;
+  align-self: center;
+  cursor: pointer;
+}
+
+@media (min-width: 1921px) {
+  .grid {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .gallery .grid .grid-card .card__photo {
+    width: 475px;
+    height: 440px;
+  }
+}
 .cards-block {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .cards-block .cards {
@@ -80,7 +235,11 @@ body * {
   padding-bottom: 30px;
 }
 .cards-block .cards:hover .photographer__photo {
+  transition: box-shadow 0.5s ease-in;
   box-shadow: 0px 6px 9px 0px #525252;
+}
+.cards-block .cards .photographer {
+  background-color: white;
 }
 
 .photographers {
@@ -116,8 +275,8 @@ body * {
 }
 .photographers .photographer__photo {
   cursor: pointer;
-  height: 200px;
-  width: 200px;
+  height: 230px;
+  width: 230px;
   border: none;
   border-radius: 100%;
   object-fit: cover;
@@ -158,7 +317,7 @@ body * {
     width: 100%;
   }
 }
-@media (min-width: 2000px) {
+@media (min-width: 1921px) {
   .photographers {
     margin-left: 100px;
     margin-right: 100px;
@@ -171,70 +330,156 @@ body * {
     margin-top: 0px;
   }
 }
-.header {
-  width: 75%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.profile--style {
+  background-color: #FAFAFA;
+  margin-top: 35px;
   padding: 25px 0px 25px 0px;
 }
-.header .header__title {
-  width: 35%;
-  text-align: center;
+.profile--style .photographer-description {
+  margin: 25px;
+  display: grid;
+  grid-template-columns: 36% 43% 21%;
+  row-gap: 0px;
+}
+.profile--style .photographer-description h1 {
+  grid-column: 1;
+  grid-row: 1;
+  color: #D3573C;
+  font-size: 3.5em;
+  letter-spacing: 1.3px;
+  margin-top: 0px;
+  margin-left: 15px;
+  margin-bottom: 0px;
+}
+.profile--style .photographer-description h2 {
+  grid-column: 1;
+  grid-row: 2;
   color: #901C1C;
-  font-size: 3rem;
+  font-size: 1.8em;
+  letter-spacing: 1.3px;
+  margin-top: 0px;
+  margin-left: 15px;
+  margin-bottom: 3px;
 }
-.header .header__title .title {
-  text-decoration: none;
+.profile--style .photographer-description p {
+  color: #525252;
+  grid-column: 1;
+  grid-row: 3;
+  font-size: 1.2em;
+  margin-top: 0px;
+  margin-left: 15px;
+  margin-bottom: 0px;
+}
+.profile--style .photographer-description .photographer__button {
+  grid-column: 2;
+  grid-row: 1;
+}
+.profile--style .photographer-description .photographer__photo {
+  grid-column: 3;
+  grid-row: 1/5;
+  align-self: center;
+  height: 250px;
+  width: 250px;
+  border: none;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: 0px 5px 8px 0px lightgrey;
+}
+.profile--style .photographer-description .tag-list {
+  grid-column: 1;
+  grid-row: 4;
+  margin-left: 10px;
+  width: auto;
+  justify-content: left;
+  align-self: center;
+  padding: 0px;
+  margin-top: 0px;
+}
+.profile--style .photographer-description .tag-list .tag--static {
+  font-size: 1.1em;
   font-family: "DM bold";
-  letter-spacing: 1px;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 1px 9px;
 }
-.header .header__title .title:visited {
+
+@media (min-width: 1921px) {
+  .profile--style .photographer-description {
+    grid-template-columns: 25% 55% 20%;
+  }
+  .profile--style .photographer-description .photographer__photo {
+    height: 300px;
+    width: 300px;
+  }
+}
+/* BASE */
+body {
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+body * {
+  box-sizing: border-box;
+  font-family: "DM regular";
+  font-size: 1em;
+}
+body a {
+  text-decoration: none;
+}
+body a:visited {
   color: inherit;
 }
 
-.tag-list {
-  width: 100%;
+.sticky-label {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-around;
-  list-style: none;
-  padding-left: 0px;
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  width: 300px;
+  font-size: 1.4em;
+  color: black;
+  background-color: #DB8876;
+  border-radius: 5px 5px 0px 0px;
+  padding: 20px 0px 20px 0px;
 }
-.tag-list .tag--static {
-  margin-left: 3px;
-  margin-right: 3px;
+.sticky-label span {
+  font-family: "DM medium";
 }
 
 @media (max-width: 1025px) {
-  .header {
-    width: 100%;
-    padding-top: 20px;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .header .header__title {
-    width: 100%;
-    font-size: 2em;
-    text-align: left;
-  }
-  .header .header__navbar {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .header .tag-list {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    grid-gap: 6px 0px;
-  }
-  .header .tag-list .tag--static {
-    padding: 1px 4px;
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
-/* COLORS */
+@media (min-width: 1921px) {
+  body {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@font-face {
+  font-family: "DM regular";
+  src: url("./../public/Fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DM medium";
+  src: url("./../public/Fonts/DMSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DM bold";
+  src: url("./../public/Fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
 /*# sourceMappingURL=style.css.map */
