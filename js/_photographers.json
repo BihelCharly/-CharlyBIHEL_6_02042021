@@ -1,0 +1,50 @@
+[{
+        "name": "Mimi Keel",
+        "city": "London,UK",
+        "hook": "Voir le beau dans le quotidien",
+        "tags": ["#portrait", "#events", "#travel", "#animals"],
+        "profil": "/../public/ID/MimiKeel.jpg",
+        "photo": "MimiKeel"
+    },
+    {
+        "name": "Ellie-Rose Wilkens",
+        "city": "Paris, France",
+        "hook": "Travaille sur des compositions complexes",
+        "tags": ["#sports", "#architecture"],
+        "profil": "/../public/ID/EllieRoseWilkens.jpg",
+        "photo": "EllieRoseWilkens"
+    },
+    {
+        "name": "Tracy Galindo",
+        "city": "Montreal, Canada",
+        "hook": "Photographe freelance",
+        "tags": ["#art", "#fashion", "#events"],
+        "profil": "/../public/ID/TracyGalindo.jpg",
+        "photo": "TracyGalindo"
+    },
+    {
+        "name": "Nabeel Bradford",
+        "city": "Mexico City, Mexico",
+        "hook": "Je vais toujours de l'avant",
+        "tags": ["#travel", "#portrait"],
+        "profil": "/../public/ID/NabeelBradford.jpg",
+        "photo": "NabeelBradford"
+    },
+    {
+        "name": "Rhode Dubois",
+        "city": "Barcelona, Spain",
+        "hook": "Créatrice de souvenirs",
+        "tags": ["#sport", "#fashion", "events", "#animals"],
+        "profil": "/../public/ID/RhodeDubois.jpg",
+        "photo": "RhodeDubois"
+    },
+    {
+        "name": "Marcel Nikolic",
+        "city": "Berlin, Germany",
+        "hook": "Toujours à la recherche de LA photo",
+        "tags": ["#travel", "#architecture"],
+        "profil": "/../public/ID/MarcelNikolic.jpg",
+        "photo": "MarcelNikolic"
+    }
+
+]

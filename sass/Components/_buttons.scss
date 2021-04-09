@@ -33,6 +33,11 @@
     }
 }
 
+.tag--active {
+    color: white;
+    background-color: $secondary-color-ft;
+}
+
 .filter-list {
     cursor: pointer;
     width: 170px;

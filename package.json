@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/BihelCharly/CharlyBIHEL_6_02042021#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "sass": "^1.32.8"
     }
 }

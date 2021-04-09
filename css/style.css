@@ -1,13 +1,13 @@
 /* UTILS */
 /* COLORS */
 /* LAYOUTS */
-footer {
-  padding: 50px 0px 50px 0px;
+body footer {
   text-align: center;
 }
-footer span {
+body footer span {
+  padding: 50px 0px 50px 0px;
+  font-size: 1.23em;
   font-family: "DM bold";
-  font-size: 1em;
 }
 
 .header {
@@ -125,6 +125,11 @@ footer span {
   background-color: #901C1C;
 }
 
+.tag--active {
+  color: white;
+  background-color: #901C1C;
+}
+
 .filter-list {
   cursor: pointer;
   width: 170px;
@@ -226,8 +231,8 @@ footer span {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .cards-block .cards {
   width: 33%;

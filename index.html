@@ -16,32 +16,48 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header__title">
             <a class="title" href="index.html">Fish<i class="fas fa-camera"></i>ye</a>
         </div>
-        <nav class="header__navbar" aria-label="photographer categories">
+        <nav class="header__navbar" aria-label="photographer categories" role="navigation">
             <ul class="tag-list">
-                <li class="tag--static">#Portrait</li>
-                <li class="tag--static">#Art</li>
-                <li class="tag--static">#Fashion</li>
-                <li class="tag--static">#Architecture</li>
-                <li class="tag--static">#Travel</li>
-                <li class="tag--static">#Sport</li>
-                <li class="tag--static">#Animals</li>
-                <li class="tag--static">#Events</li>
+                <li>
+                    <button class="tag--static" value="portrait" type="submit">#Portrait</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="art">#Art</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="fashion">#Fashion</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="architecture">#Architecture</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="travel">#Travel</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="sport">#Sport</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="animals">#Animals</button>
+                </li>
+                <li>
+                    <button class="tag--static" value="events">#Events</button>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <section class="photographers">
             <h1>Nos photographes</h1>
             <div class="cards-block">
                 <!-- Photographer #1-->
                 <div class="cards">
                     <div class="photographer" aria-label="Profil de Mimi Keel">
-                        <a href="photographer_1.html" aria-label="Apprenez en plus sur Mimi Keel"><img class="photographer__photo" src="./public/ID/MimiKeel.jpg" title="Photo de Mimi Keel" alt="Photo de Mimi Keel">
+                        <a href="photographer_page.html" aria-label="Apprenez en plus sur Mimi Keel"><img class="photographer__photo" src="./public/ID/MimiKeel.jpg" title="Photo de Mimi Keel" alt="Photo de Mimi Keel">
                             <h2>Mimi Keel</h2>
                         </a>
                     </div>
@@ -60,14 +76,14 @@
                     </div>
                 </div>
                 <!-- Photographer #2-->
-                <div class="cards">
-                    <div class="photographer" aria-label="Un Photographe">
-                        <img class="photographer__photo" src="./public/ID/EllieRoseWilkens.jpg" title="Photo de profil Ellie-Rose Wilkens" alt="Photo de profil Ellie-Rose Wilkens">
+                <div class="cards ">
+                    <div class="photographer " aria-label="Un Photographe ">
+                        <img class="photographer__photo " src="./public/ID/EllieRoseWilkens.jpg " title="Photo de profil Ellie-Rose Wilkens " alt="Photo de profil Ellie-Rose Wilkens ">
                         <h2>Ellie-Rose Wilkens</h2>
                     </div>
-                    <div class="photographer__description" aria-label="Description et tarifs d'Ellie-Rose Wilkens">
+                    <div class="photographer__description " aria-label="Description et tarifs d 'Ellie-Rose Wilkens">
                         <h3>Paris, France</h3>
-                        <p>Voir le beau dans le quotidien</p>
+                        <p>Travaille sur des compositions complexes</p>
                         <h4>400€/jour</h4>
                     </div>
                     <div class="photographer__tags">
@@ -85,7 +101,7 @@
                     </div>
                     <div class="photographer__description" aria-label="Description et tarifs de Tracy Galindo">
                         <h3>Montreal, Canada</h3>
-                        <p>Voir le beau dans le quotidien</p>
+                        <p>Photographe freelance</p>
                         <h4>400€/jour</h4>
                     </div>
                     <div class="photographer__tags">
@@ -110,7 +126,7 @@
                     <div class="photographer__tags">
                         <ul class="tag-list">
                             <li class="tag--static">#travel</li>
-                            <li class="tag--static">#portraits</li>
+                            <li class="tag--static">#portrait</li>
                         </ul>
                     </div>
                 </div>
@@ -156,6 +172,10 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
+        <span>© 2021 Charly BIHEL. All rights reserved.</span>
     </footer>
+    <script src="./js/filterByTags.js"></script>
 </body>
+
+</html>

@@ -1,8 +1,10 @@
-footer {
-    padding: 50px 0px 50px 0px;
-    text-align: center;
-    & span {
-        font-family: "DM bold";
-        font-size: 1em;
+body {
+    & footer {
+        text-align: center;
+        & span {
+            padding: 50px 0px 50px 0px;
+            font-size: 1.23em;
+            font-family: "DM bold";
+        }
     }
 }
