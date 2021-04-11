@@ -1,10 +1,22 @@
 body {
     & footer {
+        padding: 50px 0px 50px 0px;
         text-align: center;
         & span {
-            padding: 50px 0px 50px 0px;
             font-size: 1.23em;
             font-family: "DM bold";
+        }
+    }
+}
+
+@media (max-width: 1025px) {
+    body {
+        & footer {
+            padding: 50px 0px 50px 0px;
+            text-align: center;
+            & span {
+                font-size: 0.8em;
+            }
         }
     }
 }

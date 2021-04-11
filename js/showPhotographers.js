@@ -10,7 +10,7 @@ let photographerPhoto = document.querySelector(".photographer-description .photo
 function loadJSON(callback) {
     let xobj = new XMLHttpRequest();
     xobj.overrideMimeType("/application/json");
-    xobj.open('GET', 'js/_photographers.json', true);
+    xobj.open('GET', 'js/photographers.json', true);
     xobj.setRequestHeader('Content-type', 'application/json');
     xobj.onreadystatechange = function() {
         if (xobj.readyState == 4 && xobj.status == "200") {

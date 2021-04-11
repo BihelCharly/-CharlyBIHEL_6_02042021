@@ -5,8 +5,8 @@
     align-items: end;
     padding: 25px 0px 25px 0px;
     .header__title {
-        width: 40%;
-        text-align: right;
+        width: 25%;
+        text-align: left;
         color: $secondary-color-ft;
         font-size: 3rem;
         .title {
@@ -17,9 +17,6 @@
                 color: inherit;
             }
         }
-    }
-    .header__navbar {
-        width: 100%;
     }
     .photographer--page {
         width: 100%;
@@ -51,6 +48,7 @@
         padding-top: 20px;
         flex-direction: column;
         flex-wrap: wrap;
+        align-items: center;
         .header__title {
             width: 100%;
             font-size: 2em;
@@ -58,9 +56,6 @@
         }
         .header__navbar {
             padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
         }
         .tag-list {
             width: 100%;

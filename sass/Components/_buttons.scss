@@ -1,7 +1,7 @@
 .button--static {
     cursor: pointer;
     width: 170px;
-    color: white;
+    color: $alt-color-bg;
     font-family: "Dm bold";
     font-size: 1.2em;
     background-color: $primary-color-bg;
@@ -12,15 +12,16 @@
     &:hover,
      :focus,
     &:focus:not(:active) {
+        background-color: $secondary-color-bg;
         transition-duration: 0.2s;
-        transform: scale(1.1) translate(0%, 0%);
+        transform: scale(1.05) translate(0%, 0%);
     }
 }
 
 .tag--static {
     cursor: pointer;
     color: $secondary-color-ft;
-    background-color: white;
+    background-color: $alt-color-bg;
     border: 0.2px solid lightgrey;
     border-radius: 20px;
     padding: 5px 5px;
@@ -28,20 +29,20 @@
     width: auto;
     &:hover {
         transition: all 1s;
-        color: white;
+        color: $alt-color-bg;
         background-color: $secondary-color-ft;
     }
 }
 
 .tag--active {
-    color: white;
+    color: $alt-color-bg;
     background-color: $secondary-color-ft;
 }
 
 .filter-list {
     cursor: pointer;
     width: 170px;
-    color: white;
+    color: $alt-color-bg;
     font-family: "Dm bold";
     font-size: 1.2em;
     background-color: $primary-color-bg;
