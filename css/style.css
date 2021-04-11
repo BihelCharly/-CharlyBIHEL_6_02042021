@@ -223,52 +223,47 @@ body footer span {
   height: 100%;
   overflow: auto;
   background-color: white;
+  /* MODAL CONTENT */
 }
-
-/* MODAL CONTENT */
-.modal-content {
+.modal .modal-content {
   position: relative;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
   width: 50%;
   max-width: 50%;
+  /* CLOSE BUTTON */
+  /* SLIDES */
+  /* NEXT & PREV ARROWS */
+  /* ARROW HOVER */
+  /* PHOTO TITLE */
 }
-
-/* CLOSE BUTTON */
-.close {
+.modal .modal-content .close {
   color: #901C1C;
   position: absolute;
   top: 0;
   right: 0;
   -webkit-text-stroke: 6px white;
 }
-
-.close:hover,
-.close:focus {
+.modal .modal-content .close:hover, .modal .modal-content .close:focus {
   color: #D3573C;
   text-decoration: none;
   cursor: pointer;
 }
-
-/* SLIDES */
-.mySlides {
+.modal .modal-content .mySlides {
   display: none;
   text-align: center;
 }
-.mySlides img {
+.modal .modal-content .mySlides img {
   height: 800px;
   width: 800px;
   object-fit: cover;
 }
-
-.cursor {
+.modal .modal-content .cursor {
   cursor: pointer;
 }
-
-/* Next & previous buttons */
-.prev,
-.next {
+.modal .modal-content .prev,
+.modal .modal-content .next {
   line-height: 0px;
   cursor: pointer;
   position: absolute;
@@ -282,22 +277,17 @@ body footer span {
   -webkit-user-select: none;
   -webkit-text-stroke: 3px white;
 }
-
-/* Position the "next button" to the right */
-.next {
+.modal .modal-content .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
+.modal .modal-content .prev:hover,
+.modal .modal-content .next:hover {
   color: #D3573C;
   transition-duration: 0.1s;
   transform: scale(1.1) translate(0%, 0%);
 }
-
-.modal__caption {
+.modal .modal-content .modal__caption {
   color: #901C1C;
   font-size: 2em;
   width: 800px;
