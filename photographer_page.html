@@ -45,54 +45,8 @@
                     <option value="title">Titre</option>
                 </select>
             <div class="grid">
-                <!-- Photo #1 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Animals_Rainbow.jpg" alt="Photo d'un oiseau exotique" title="Arc-en-ciel" onclick="openModal();currentSlide(1)">
-                    <h3 class="card__title" aria-label="titre de la photo">Arc-en-ciel</h3>
-                    <p class="card__price" aria-label="prix de la photo">70 €</p>
-                    <p class="card__likes" aria-label="compteur de j'aime">13</p>
-                    <i class="fas fa-heart fa-xs" aria-label="bouton j'aime"></i>
-                </div>
-                <!-- Photo #2 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Travel_Lonesome.jpg" alt="Photo d'un homme en montagne" title="Solitude" onclick="openModal();currentSlide(2)">
-                    <h3 class="card__title" aria-label="titre de la photo">Solitude</h3>
-                    <p class="card__price" aria-label="prix de la photo">70 €</p>
-                    <p class="card__likes" aria-label="compteur de j'aime">12</p>
-                    <i class="fas fa-heart fa-xs" aria-label="bouton j'aime"></i>
-                </div>
-                <!-- Photo #3 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Event_SeasideWedding.jpg" alt="Photo table dressée pour un Mariage" title="Mariage à la mer" onclick="openModal();currentSlide(3)">
-                    <h3 class="card__title ">Mariage à la mer</h3>
-                    <p class="card__price ">70 €</p>
-                    <p class="card__likes ">12</p>
-                    <i class="fas fa-heart fa-xs" aria-label="bouton j'aime"></i>
-                </div>
-                <!-- Photo #4 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Portrait_Background.jpg" alt="Photo de Portrait de femme " title="Portrait" onclick="openModal();currentSlide(4)">
-                    <h3 class="card__title ">Portrait</h3>
-                    <p class="card__price ">70 €</p>
-                    <p class="card__likes ">12</p>
-                    <i class="fas fa-heart fa-xs" aria-label="bouton j'aime"></i>
-                </div>
-                <!-- Photo #5 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Event_PintoWedding.jpg" alt="Photo d'un couple marié " title="Couple marié" onclick="openModal();currentSlide(5)">
-                    <h3 class="card__title ">Couple marié</h3>
-                    <p class="card__price ">70 €</p>
-                    <p class="card__likes ">12</p>
-                    <i class="fas fa-heart fa-xs" aria-label="bouton j'aime"></i>
-                </div>
-                <!-- Photo #6 -->
-                <div class="grid-card">
-                    <img class="card__photo hover-shadow cursor" src="./public/Mimi/Portrait_Wednesday.jpg" alt="Photo d'un enfant " title="Enfant" onclick="openModal();currentSlide(6)">
-                    <h3 class="card__title ">Enfant</h3>
-                    <p class="card__price ">70 €</p>
-                    <p class="card__likes ">12</p>
-                    <i class="fas fa-heart fa-xs " aria-label="bouton j'aime"></i>
-                </div>
+                <!-- Photos sent with JS -->
+
             </div>
             <!-- MODAL -->
             <div id="myModal" class="modal">
@@ -129,7 +83,7 @@
                     <div class="modal__caption">
                         <p id="caption__text"></p>
                     </div>
-
+                </div>
         </section>
     </main>
     <footer>
@@ -138,6 +92,7 @@
     <script src="./js/showPhotographers.js"></script>
     <script src="./js/lightbox.js"></script>
     <script src="./js/filterByTags.js"></script>
+    <script src="./js/contactForm.js"></script>
 </body>
 
 </html>
