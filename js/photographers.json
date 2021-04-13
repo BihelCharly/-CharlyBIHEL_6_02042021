@@ -10,42 +10,42 @@
                 "alt": "Photo d'un oiseau exotique",
                 "title": "Arc-en-Ciel",
                 "price": "70€",
-                "likes": "0"
+                "likes": "11"
             },
             {
                 "src": "./public/Mimi/Travel_Lonesome.jpg",
                 "alt": "Photo d'un homme en montagne",
                 "title": "Solitude",
                 "price": "70€",
-                "likes": "0"
+                "likes": "23"
             },
             {
                 "src": "./public/Mimi/Event_SeasideWedding.jpg",
                 "alt": "Photo table dressée pour un Mariage",
                 "title": "Mariage à la mer",
                 "price": "70€",
-                "likes": "0"
+                "likes": "7"
             },
             {
                 "src": "./public/Mimi/Portrait_Background.jpg",
                 "alt": "Photo de Portrait de femme ",
                 "title": "Portrait",
                 "price": "70€",
-                "likes": "0"
+                "likes": "1"
             },
             {
                 "src": "./public/Mimi/Event_PintoWedding.jpg",
                 "alt": "Photo d'un couple marié",
                 "title": "Couple marié",
                 "price": "70€",
-                "likes": "0"
+                "likes": "2"
             },
             {
                 "src": "./public/Mimi/Portrait_Wednesday.jpg",
                 "alt": "Photo d'un enfant ",
                 "title": "Enfant",
                 "price": "70€",
-                "likes": "0"
+                "likes": "3"
             }
         ]
     },

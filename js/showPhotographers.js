@@ -139,11 +139,12 @@ loadJSON(function(json) {
         let cardHeartValue = cardHeart.value;
         let cardCounter = element.querySelector(".card__likes");
         cardHeart.addEventListener('click', function() {
-            let upCounters = cardHeartValue + i++;
-            // UP COUNTERS LIKE VISIBLE IN CARD__LIKES CLASS
-            cardCounter.innerHTML = upCounters;
-            // UP COUNTERS IN BTN VALUE IN FA-HEART CLASS 
-            cardHeart.setAttribute("value", upCounters);
+            cardHeartValueParsed = parseInt(cardHeartValue);
+            let upCounters = cardHeartValueParsed + i++;
+            let upCountersToString = upCounters.toString();
+            cardCounter.innerHTML = upCountersToString;
+            cardHeart.setAttribute("value", upCountersToString);
+
             // UP COUNTERS FOR TOTAL LIKES
             let totalLikes = document.querySelector(".total-likes");
             let totalLikesFstChild = document.querySelector(".total-likes").firstChild;
@@ -152,7 +153,6 @@ loadJSON(function(json) {
             let upTotalCounters = totalLikesFstChildParsed + 1;
             let totalCountersString = upTotalCounters.toString();
             var stringToNode = document.createTextNode(totalCountersString + " ");
-            //totalLikes.innerHTML = totalCountersString;
             totalLikes.replaceChild(stringToNode, totalLikesFstChild);
         });
     });
