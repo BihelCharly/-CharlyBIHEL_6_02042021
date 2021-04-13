@@ -19,12 +19,40 @@ function loadJSON(callback) {
             callback(JSON.parse(xobj.responseText));
         }
     };
+
     xobj.send(null);
 }
 
 // INJECTIONS
 loadJSON(function(json) {
 
+    let getPhotographer = "mimikeel";
+
+    function switchResult(whoIsIt) {
+        switch (whoIsIt) {
+            case "mimikeel":
+                photographer = json[0];
+                break;
+            case "ellierosewilkens":
+                photographer = json[1];
+                break;
+            case "tracygalindo":
+                photographer = json[2];
+                break;
+            case "nabeelbradford":
+                photographer = json[3];
+                break;
+            case "rhodedubois":
+                photographer = json[4];
+                break;
+            case "marcelnikolic":
+                photographer = json[5];
+                break;
+        }
+        return photographer;
+    }
+
+    switchResult(getPhotographer);
 
     function photographerProfil(name, city, hook, who, imgProfil) {
         // page title
@@ -45,10 +73,10 @@ loadJSON(function(json) {
         photographerPhoto.title = 'Photo de profil de ' + name;
         photographerPhoto.alt = 'Photo de profil de ' + name;
     }
-    photographerProfil(json[0].name, json[0].city, json[0].hook, json[0], json[0].photo);
+    photographerProfil(photographer.name, photographer.city, photographer.hook, photographer, photographer.photo);
 
     // ADD PHOTOS IN THE GALLERY SECTION
-    function addIMG(src, alt, title, price, likes) {
+    function addIMG(src, alt, title, price, likes, indexForModal) {
         // CREATE NEW CARD TO PUT IMG INSIDE
         let card = document.createElement("div");
         card.className = "grid-card";
@@ -60,10 +88,13 @@ loadJSON(function(json) {
         cardPrice.setAttribute("aria-label", "prix de la photo");
         let cardLikes = document.createElement("p");
         cardLikes.className = "card__likes";
+
         cardLikes.setAttribute("aria-label", "compteur de j'aime");
-        let cardIconHeart = document.createElement("i");
+        let cardIconHeart = document.createElement("button");
         cardIconHeart.className = "fas fa-heart fa-xs";
         cardIconHeart.setAttribute("aria-label", "bouton j'aime");
+        cardIconHeart.setAttribute("value", likes);
+
         // IMG CLASS NAME
         let imgClass = "card__photo hover-shadow cursor";
         // CREATE NEW ELEMENT
@@ -72,6 +103,7 @@ loadJSON(function(json) {
         img.src = src;
         img.alt = alt;
         img.title = title;
+        img.setAttribute("onclick", "openModal();currentSlide(" + indexForModal + ")");
         cardTitle.innerHTML = title;
         cardPrice.innerHTML = price;
         cardLikes.innerHTML = likes;
@@ -83,9 +115,45 @@ loadJSON(function(json) {
         card.append(cardLikes);
         card.append(cardIconHeart);
         getGalleryGrid.appendChild(card);
+
     }
 
-    json[0].img.forEach(element => {
-        addIMG(element.src, element.alt, element.title, element.price, element.likes);
+    photographer.img.forEach(element => {
+        // GET INDEX FOR THE LIGHTBOX
+        let index = photographer.img.indexOf(element);
+        // ADD EVERYTHING A PHOTO NEED FROM THE JSON
+        addIMG(element.src, element.alt, element.title, element.price, element.likes, index + 1);
+    });
+
+    // LIKES COUNTERS SECTION
+
+    // DOM SELECTORS
+    let gridCard = document.querySelectorAll(".grid-card");
+
+
+    // open the content element when clicking on the buttonsItems
+    gridCard.forEach(function(element) {
+        let i = 1;
+        // DOM SELECTORS
+        let cardHeart = element.querySelector("button");
+        let cardHeartValue = cardHeart.value;
+        let cardCounter = element.querySelector(".card__likes");
+        cardHeart.addEventListener('click', function() {
+            let upCounters = cardHeartValue + i++;
+            // UP COUNTERS LIKE VISIBLE IN CARD__LIKES CLASS
+            cardCounter.innerHTML = upCounters;
+            // UP COUNTERS IN BTN VALUE IN FA-HEART CLASS 
+            cardHeart.setAttribute("value", upCounters);
+            // UP COUNTERS FOR TOTAL LIKES
+            let totalLikes = document.querySelector(".total-likes");
+            let totalLikesFstChild = document.querySelector(".total-likes").firstChild;
+            let totalLikesFstChildContent = totalLikesFstChild.textContent;
+            let totalLikesFstChildParsed = parseInt(totalLikesFstChildContent);
+            let upTotalCounters = totalLikesFstChildParsed + 1;
+            let totalCountersString = upTotalCounters.toString();
+            var stringToNode = document.createTextNode(totalCountersString + " ");
+            //totalLikes.innerHTML = totalCountersString;
+            totalLikes.replaceChild(stringToNode, totalLikesFstChild);
+        });
     });
 });

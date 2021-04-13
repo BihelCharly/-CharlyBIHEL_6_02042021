@@ -21,7 +21,6 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
-
 function showSlides(n) {
     // DOM SELECTORS
     let slides = document.getElementsByClassName("mySlides");
@@ -33,7 +32,7 @@ function showSlides(n) {
         slides[i].style.display = "none";
     }
     slides[slideIndex - 1].style.display = "block";
-    // GET AND ADD
+    // GET AND ADD TITLE
     let getTitle = slides[slideIndex - 1].firstElementChild.title;
     captionText.innerHTML = getTitle;
 }

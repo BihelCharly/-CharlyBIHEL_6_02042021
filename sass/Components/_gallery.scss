@@ -54,10 +54,12 @@
                 font-family: "DM medium";
             }
             .fa-heart {
+                color: $secondary-color-ft;
                 grid-column: 4;
                 grid-row: 2;
                 align-self: center;
                 cursor: pointer;
+                border: 0px;
             }
         }
     }

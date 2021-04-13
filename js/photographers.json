@@ -10,7 +10,7 @@
                 "alt": "Photo d'un oiseau exotique",
                 "title": "Arc-en-Ciel",
                 "price": "70€",
-                "likes": "5"
+                "likes": "0"
             },
             {
                 "src": "./public/Mimi/Travel_Lonesome.jpg",
@@ -55,7 +55,50 @@
         "hook": "Travaille sur des compositions complexes",
         "tags": ["#sports", "#architecture"],
         "profil": "/../public/ID/EllieRoseWilkens.jpg",
-        "photo": "EllieRoseWilkens"
+        "photo": "EllieRoseWilkens",
+        "img": [{
+                "src": "./public/Ellie Rose/Architecture_Connected_Curves.jpg",
+                "alt": "Photo d'un oiseau exotique",
+                "title": "Arc-en-Ciel",
+                "price": "70€",
+                "likes": "0"
+            },
+            {
+                "src": "./public/Ellie Rose/Architecture_Cross_Bar.jpg",
+                "alt": "Photo d'un homme en montagne",
+                "title": "Solitude",
+                "price": "70€",
+                "likes": "0"
+            },
+            {
+                "src": "./public/Ellie Rose/Architecture_Horseshoe.jpg",
+                "alt": "Photo table dressée pour un Mariage",
+                "title": "Mariage à la mer",
+                "price": "70€",
+                "likes": "0"
+            },
+            {
+                "src": "./public/Ellie Rose/Architecture_Water_on_Modern.jpg",
+                "alt": "Photo de Portrait de femme ",
+                "title": "Portrait",
+                "price": "70€",
+                "likes": "0"
+            },
+            {
+                "src": "./public/Ellie Rose/Architecture_White_Light.jpg",
+                "alt": "Photo d'un couple marié",
+                "title": "Couple marié",
+                "price": "70€",
+                "likes": "0"
+            },
+            {
+                "src": "./public/Ellie Rose/Sport_Jump.jpg",
+                "alt": "Photo d'un enfant ",
+                "title": "Enfant",
+                "price": "70€",
+                "likes": "0"
+            }
+        ]
     },
     {
         "name": "Tracy Galindo",
