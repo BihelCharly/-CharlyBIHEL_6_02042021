@@ -42,10 +42,31 @@
             },
             {
                 "src": "./public/Mimi/Portrait_Wednesday.jpg",
-                "alt": "Photo d'un enfant ",
+                "alt": "Photo d'un enfant",
                 "title": "Enfant",
                 "price": "70€",
                 "likes": "3"
+            },
+            {
+                "src": "./public/Mimi/Portrait_Nora.jpg",
+                "alt": "Photo d'une femme dans un restaurant",
+                "title": "Diner",
+                "price": "70€",
+                "likes": "6"
+            },
+            {
+                "src": "./public/Mimi/Travel_HillsideColor.jpg",
+                "alt": "Photo d'un village",
+                "title": "Méditéranée",
+                "price": "70€",
+                "likes": "15"
+            },
+            {
+                "src": "./public/Mimi/Event_BenevidesWedding.jpg",
+                "alt": "Photo d'un couple marié",
+                "title": "Le grand jour",
+                "price": "70€",
+                "likes": "8"
             }
         ]
     },
@@ -58,45 +79,73 @@
         "photo": "EllieRoseWilkens",
         "img": [{
                 "src": "./public/Ellie Rose/Architecture_Connected_Curves.jpg",
-                "alt": "Photo d'un oiseau exotique",
-                "title": "Arc-en-Ciel",
+                "alt": "Photo d'une architecture modern courbée",
+                "title": "Courbes",
                 "price": "70€",
-                "likes": "0"
+                "likes": "11"
             },
             {
                 "src": "./public/Ellie Rose/Architecture_Cross_Bar.jpg",
-                "alt": "Photo d'un homme en montagne",
-                "title": "Solitude",
+                "alt": "Photo d'une architecture modern droite",
+                "title": "Barres",
                 "price": "70€",
-                "likes": "0"
+                "likes": "2"
             },
             {
                 "src": "./public/Ellie Rose/Architecture_Horseshoe.jpg",
-                "alt": "Photo table dressée pour un Mariage",
-                "title": "Mariage à la mer",
+                "alt": "Photo d'une architecture modern en forme de fer à cheval",
+                "title": "Fer",
                 "price": "70€",
-                "likes": "0"
+                "likes": "3"
             },
             {
                 "src": "./public/Ellie Rose/Architecture_Water_on_Modern.jpg",
-                "alt": "Photo de Portrait de femme ",
-                "title": "Portrait",
+                "alt": "Photo d'une architecture de theatre",
+                "title": "Theatre",
                 "price": "70€",
-                "likes": "0"
+                "likes": "5"
             },
             {
                 "src": "./public/Ellie Rose/Architecture_White_Light.jpg",
-                "alt": "Photo d'un couple marié",
-                "title": "Couple marié",
+                "alt": "Photo d'une architecture lumineuse",
+                "title": "Lumière",
                 "price": "70€",
-                "likes": "0"
+                "likes": "23"
             },
             {
                 "src": "./public/Ellie Rose/Sport_Jump.jpg",
-                "alt": "Photo d'un enfant ",
-                "title": "Enfant",
+                "alt": "Photo de skateurs",
+                "title": "Planche",
                 "price": "70€",
-                "likes": "0"
+                "likes": "12"
+            },
+            {
+                "src": "./public/Ellie Rose/Sport_Next_Hold.jpg",
+                "alt": "Photo d'une escaladeuse",
+                "title": "Sommet",
+                "price": "70€",
+                "likes": "17"
+            },
+            {
+                "src": "./public/Ellie Rose/Sport_Race_End.jpg",
+                "alt": "Photo d'une course",
+                "title": "Vitesse",
+                "price": "70€",
+                "likes": "4"
+            },
+            {
+                "src": "./public/Ellie Rose/Sport_Sky_Cross.jpg",
+                "alt": "Photo d'un skieur",
+                "title": "Air",
+                "price": "70€",
+                "likes": "7"
+            },
+            {
+                "src": "./public/Ellie Rose/sport_water_tunnel.jpg",
+                "alt": "Photo d'un sufeur",
+                "title": "Tunnel",
+                "price": "70€",
+                "likes": "30"
             }
         ]
     },
@@ -132,5 +181,4 @@
         "profil": "/../public/ID/MarcelNikolic.jpg",
         "photo": "MarcelNikolic"
     }
-
 ]

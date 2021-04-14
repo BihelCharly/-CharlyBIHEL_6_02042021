@@ -26,7 +26,7 @@ function loadJSON(callback) {
 // INJECTIONS
 loadJSON(function(json) {
 
-    let getPhotographer = "mimikeel";
+    let getPhotographer = "ellierosewilkens";
 
     function switchResult(whoIsIt) {
         switch (whoIsIt) {
@@ -139,6 +139,7 @@ loadJSON(function(json) {
         let cardHeartValue = cardHeart.value;
         let cardCounter = element.querySelector(".card__likes");
         cardHeart.addEventListener('click', function() {
+            // UP COUNTERS FOR HIMSELF
             cardHeartValueParsed = parseInt(cardHeartValue);
             let upCounters = cardHeartValueParsed + i++;
             let upCountersToString = upCounters.toString();
@@ -156,4 +157,8 @@ loadJSON(function(json) {
             totalLikes.replaceChild(stringToNode, totalLikesFstChild);
         });
     });
+
+    // get total likes for each photos on window load to add their values to total labels
+    // a voir si nécéssaire
+    //window.onload();
 });
