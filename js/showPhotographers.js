@@ -95,10 +95,9 @@ loadJSON(function(json) {
         cardIconHeart.setAttribute("aria-label", "bouton j'aime");
         cardIconHeart.setAttribute("value", likes);
 
-        // IMG CLASS NAME
-        let imgClass = "card__photo hover-shadow cursor";
         // CREATE NEW ELEMENT
         let img = new Image();
+        let imgClass = "card__photo hover-shadow cursor";
         img.className = imgClass;
         img.src = src;
         img.alt = alt;
