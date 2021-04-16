@@ -21,21 +21,21 @@ loadJSON(function(json) {
     // FOR EACH ELEMENTS IN PHOTOGRAPHERS OBJECT FROM JSON
     json.photographers.forEach(element => {
 
-        // 1 ⇒ CREATE A DIV CARD
+        // 0 ⇒ CREATE A DIV CARD
         let divCards = document.createElement("div");
         divCards.className = "cards";
         let comment = document.createComment("Photographer profile");
         cardsBlock.appendChild(comment);
         cardsBlock.append(divCards);
 
-        // 2 ⇒ FIRST DIV INSIDE CARD
+        // 1 ⇒ FIRST DIV INSIDE CARD
         let firstDivInsideCards = document.createElement("div");
         firstDivInsideCards.className = "photographer";
         firstDivInsideCards.setAttribute("aria-label", "Profil de " + element.name);
         divCards.appendChild(firstDivInsideCards);
         //// ↳ CREATE LINK
         let divCardsLink = document.createElement("a");
-        divCardsLink.href = "test.html";
+        divCardsLink.href = "photographer_profil.html";
         firstDivInsideCards.append(divCardsLink);
         //// ↳ CREATE IMG
         let photographerPortrait = new Image();
@@ -49,7 +49,7 @@ loadJSON(function(json) {
         divCardsPhotographerName.append(element.name);
         divCardsLink.append(divCardsPhotographerName);
 
-        // 3 ⇒ SECOND DIV INSIDE CARD
+        // 2 ⇒ SECOND DIV INSIDE CARD
         let divCardsDescription = document.createElement("div");
         divCardsDescription.className = "photographer__description";
         divCardsDescription.setAttribute("aria-label", "Description et tarifs de " + element.name);
@@ -67,7 +67,7 @@ loadJSON(function(json) {
         cardsDescriptionPrice.innerHTML = element.price + "€/jour";
         divCardsDescription.append(cardsDescriptionPrice);
 
-        // 4 ⇒ THIRD DIV INSIDE CARD
+        // 3 ⇒ THIRD DIV INSIDE CARD
         let divCardsTags = document.createElement("div");
         divCardsTags.className = "photographer__tags";
         divCards.appendChild(divCardsTags);
@@ -79,8 +79,10 @@ loadJSON(function(json) {
         element.tags.forEach(element => {
             let liTagList = document.createElement("li");
             liTagList.className = "tag--static";
-            liTagList.innerHTML = element;
-            ulTaglist.appendChild(liTagList);
+            liTagList.innerHTML = "#" + element;
+            ulTaglist.append(liTagList);
         });
     });
+    // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
+    filterByTags();
 });

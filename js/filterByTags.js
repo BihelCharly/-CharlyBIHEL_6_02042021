@@ -1,46 +1,48 @@
-// DOM SELECTORS
-const navTags = document.querySelectorAll(".header__navbar .tag-list button");
-const photographersCards = document.querySelectorAll(".cards-block .cards");
+function filterByTags() {
 
-// to get the value on click
-navTags.forEach(item => {
-    item.addEventListener('click', event => {
-        // si on click un tag déjà actif on supprime le filtre et on réaffiche tout les photographes 
-        if (item.className.match('tag--active')) {
-            item.classList.remove('tag--active');
-            photographersCards.forEach(function(item) {
-                if (window.getComputedStyle(item).display === "none") {
-                    item.style.display = "block";
-                }
-            });
-            // si le tag n'est pas actif alors
-        } else {
-            // on supprime tout les actifs précédents
-            navTags.forEach(function(item) {
+    // DOM SELECTORS
+    const navTags = document.querySelectorAll(".header__navbar .tag-list button");
+    const photographersCards = document.querySelectorAll(".cards-block .cards");
+
+    // FOR EACH ELEMENTS IN NAV
+    navTags.forEach(item => {
+        item.addEventListener('click', event => {
+            // IF ELEMENT IS ALREADY ACTIVE WE DELETE IT
+            if (item.className.match('tag--active')) {
                 item.classList.remove('tag--active');
-            });
-            // on rend le dernier tag actif
-            item.classList.add('tag--active');
-            // on recupère la valeur du dernier tag
-            let value = item.value;
-            // from the value i got
-            photographersCards.forEach(function(item) {
-                // get li from the current item(here photographersCards)
-                let tagLists = item.querySelectorAll("li");
-                // create array to push values
-                let array = [];
-                for (let i = 0; i < tagLists.length; i++) {
-                    array.push(tagLists[i].innerHTML);
-                    // check if one element in list include the same value than the navbar
-                    // if yes show the element
-                    if (array.includes("#" + value)) {
-                        item.style = "display: block";
-                        // otherwise hide it
-                    } else {
-                        item.style = "display: none";
+                photographersCards.forEach(function(item) {
+                    if (window.getComputedStyle(item).display === "none") {
+                        item.style.display = "block";
                     }
-                }
-            });
-        }
+                });
+                // IF IS NOT
+            } else {
+                // 1ST : WE DELETE THE OLD ONE
+                navTags.forEach(function(item) {
+                    item.classList.remove('tag--active');
+                });
+                // 2ND : WE ACTIVE THIS ONE
+                item.classList.add('tag--active');
+                // 3RD : WE TAKE THE VALUE FROM THE NEW ONE
+                let value = item.value;
+                // 4TH : WE SEARCH IN EACH CARD
+                photographersCards.forEach(function(item) {
+                    // FROM THE LI
+                    let tagLists = item.querySelectorAll("li");
+                    let array = [];
+                    // LOOP TO FIND SAME VALUE FROM THE NAVTAG TO THE CARD
+                    for (let i = 0; i < tagLists.length; i++) {
+                        array.push(tagLists[i].innerHTML);
+                        if (array.includes("#" + value)) {
+                            // IF IT MATCHS THEN SHOW IT
+                            item.style = "display: block";
+                        } else {
+                            // OTHERWISE HIDE IT
+                            item.style = "display: none";
+                        }
+                    }
+                });
+            }
+        });
     });
-});
+}
