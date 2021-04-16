@@ -27,10 +27,11 @@ function loadJSON(callback) {
 // INJECTIONS
 loadJSON(function(json) {
 
-    // Variable got from url parameter
-    let getPhotographer = "243";
+    // FROM ID I GOT IN URL
+    let url = window.location.href.toString();
+    let getPhotographer = url.slice(url.lastIndexOf('=') + 1);
 
-    // Switch case to know what page is
+    // SWITCH CASE TO SHOW THE GOOD PHOTOGRAPHER
     switchResult(getPhotographer);
 
     function switchResult(whoIsIt) {

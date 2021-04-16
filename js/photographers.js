@@ -35,7 +35,7 @@ loadJSON(function(json) {
         divCards.appendChild(firstDivInsideCards);
         //// ↳ CREATE LINK
         let divCardsLink = document.createElement("a");
-        divCardsLink.href = "photographer_profil.html";
+        divCardsLink.href = "photographer_profil.html?id=" + element.id;
         firstDivInsideCards.append(divCardsLink);
         //// ↳ CREATE IMG
         let photographerPortrait = new Image();
@@ -56,7 +56,7 @@ loadJSON(function(json) {
         divCards.append(divCardsDescription);
         //// ↳ CREATE CITY
         let cardsDescriptionCity = document.createElement("h3");
-        cardsDescriptionCity.innerHTML = element.city + "," + element.country;
+        cardsDescriptionCity.innerHTML = element.city + ", " + element.country;
         divCardsDescription.append(cardsDescriptionCity);
         //// ↳ CREATE TAGLINE
         let cardsDescriptionTagline = document.createElement("p");
