@@ -16,15 +16,15 @@ function likesCounters() {
             let upCountersToString = upCounters.toString();
             cardCounter.innerHTML = upCountersToString;
             cardHeart.setAttribute("value", upCountersToString);
-
             // UP COUNTERS FOR TOTAL LIKES
+            //DOM ELEMENTS
             let totalLikes = document.querySelector(".total-likes");
             let totalLikesFstChild = document.querySelector(".total-likes").firstChild;
             let totalLikesFstChildContent = totalLikesFstChild.textContent;
             let totalLikesFstChildParsed = parseInt(totalLikesFstChildContent);
             let upTotalCounters = totalLikesFstChildParsed + 1;
             let totalCountersString = upTotalCounters.toString();
-            var stringToNode = document.createTextNode(totalCountersString + " ");
+            var stringToNode = document.createTextNode(totalCountersString);
             totalLikes.replaceChild(stringToNode, totalLikesFstChild);
         });
     });

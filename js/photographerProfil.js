@@ -5,6 +5,8 @@ let photographerCity = document.querySelector(".photographer-description h2");
 let photographerTagline = document.querySelector(".photographer-description p");
 let photographerTags = document.querySelector(".photographer-description .tag-list");
 let photographerPhoto = document.querySelector(".photographer-description .photographer__photo");
+let labelTotalLikes = document.querySelector(".sticky-label .total-likes");
+let photographerPrice = document.querySelector(".sticky-label .price");
 // SECTION PHOTOGRAPHER PHOTOS
 const getGalleryGrid = document.querySelector(".gallery .grid");
 
@@ -58,7 +60,7 @@ loadJSON(function(json) {
         return photographer;
     }
 
-    function photographerProfil(who, name, city, country, tagline, portrait) {
+    function photographerProfil(who, name, city, country, tagline, portrait, price) {
         // page title
         window.document.title = "FishEye - " + name;
         // add name
@@ -76,8 +78,10 @@ loadJSON(function(json) {
         photographerPhoto.src = './public/ID/' + portrait;
         photographerPhoto.title = 'Photo de profil de ' + name;
         photographerPhoto.alt = 'Photo de profil de ' + name;
+        // add price to sticky label
+        photographerPrice.textContent = price + "€ / jour";
     }
-    photographerProfil(photographer, photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.portrait);
+    photographerProfil(photographer, photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.portrait, photographer.price);
 
     // ADD PHOTOS IN THE GALLERY SECTION
     function addIMG(src, title, alt, price, likes, date, tags) {
@@ -126,15 +130,18 @@ loadJSON(function(json) {
         card.append(cardIconHeart);
         getGalleryGrid.appendChild(card);
     }
+    // VAR TO GET TOTAL LIKES
+    let totalLikes = 0;
 
+    // FOR EACH MEDIA OBJECT IN THE JSON
     json.media.forEach(element => {
+        // IF THE ID FROM THE MEDIA OBJECT IS = TO ID FROM PHOTOGRAPHERS OBJECT
         if (element.photographerId === photographer.id) {
             // ADD TOTAL LIKES FROM JSON IN PAGE'S BOTTOM
             if (element.image !== undefined) {
                 // ADD EVERYTHING A PHOTO NEED FROM THE JSON
                 addIMG(element.image, element.image, element.image, element.price, element.likes, element.date, element.tags);
             } else {
-                console.log(element);
                 // ADD EVEYTHING A VIDEO NEED FROM JSON
                 // CREATE NEW CARD
                 let card = document.createElement("div");
@@ -175,10 +182,14 @@ loadJSON(function(json) {
                 card.append(cardLikes);
                 card.append(cardIconHeart);
                 getGalleryGrid.appendChild(card);
-
             }
+            // INCREMENTS THE TOTALLIKES VAR WITH EACH LIKES FROM ELEMENTS
+            totalLikes += element.likes;
         }
+        let test = document.querySelector(".total-likes").firstChild;
+        test.textContent = totalLikes;
     });
+
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
 });
