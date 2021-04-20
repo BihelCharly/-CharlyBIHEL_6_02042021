@@ -8,7 +8,7 @@ let photographerPhoto = document.querySelector(".photographer-description .photo
 let labelTotalLikes = document.querySelector(".sticky-label .total-likes");
 let photographerPrice = document.querySelector(".sticky-label .price");
 // SECTION PHOTOGRAPHER PHOTOS
-const getGalleryGrid = document.querySelector(".gallery .grid");
+const gridGallery = document.querySelector(".gallery .grid");
 
 // GET JSON
 function loadJSON(callback) {
@@ -128,7 +128,7 @@ loadJSON(function(json) {
         card.append(cardPrice);
         card.append(cardLikes);
         card.append(cardIconHeart);
-        getGalleryGrid.appendChild(card);
+        gridGallery.appendChild(card);
     }
     // VAR TO GET TOTAL LIKES
     let totalLikes = 0;
@@ -170,6 +170,7 @@ loadJSON(function(json) {
                 let photographerImgFolder = "./public/" + photographer.name;
                 newVideo.src = photographerImgFolder + "/" + element.video;
                 newVideo.controls = false;
+                newVideo.date = element.date;
                 let slicedTitle = element.video.slice(element.video.lastIndexOf('_') + 1, element.video.lastIndexOf('.'));
                 let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
                 cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
@@ -181,7 +182,7 @@ loadJSON(function(json) {
                 card.append(cardPrice);
                 card.append(cardLikes);
                 card.append(cardIconHeart);
-                getGalleryGrid.appendChild(card);
+                gridGallery.appendChild(card);
             }
             // INCREMENTS THE TOTALLIKES VAR WITH EACH LIKES FROM ELEMENTS
             totalLikes += element.likes;
@@ -192,4 +193,8 @@ loadJSON(function(json) {
 
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
+
+    // CALL SORTBY FUNCTION IN ./JS/sortBy.js
+    sortByBtn.addEventListener("change", sortBy);
+    sortBy();
 });
