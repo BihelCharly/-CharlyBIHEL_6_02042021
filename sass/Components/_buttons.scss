@@ -20,12 +20,13 @@
 
 .tag--static {
     cursor: pointer;
+    font-family: "DM medium";
     color: $secondary-color-ft;
     background-color: $alt-color-bg;
     border: 0.2px solid lightgrey;
     border-radius: 20px;
     padding: 5px 5px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     width: auto;
     &:hover {
         transition: all 1s;

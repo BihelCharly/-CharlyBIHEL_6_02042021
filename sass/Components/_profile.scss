@@ -5,7 +5,7 @@
     .photographer-description {
         margin: 25px;
         display: grid;
-        grid-template-columns: 36% 43% 21%;
+        grid-template-columns: 42% 36% 22%;
         row-gap: 0px;
         & h1 {
             grid-column: 1;
@@ -15,9 +15,9 @@
             letter-spacing: 1.3px;
             margin-top: 0px;
             margin-left: 15px;
-            margin-bottom: 0px;
+            margin-bottom: 10px;
         }
-        & h2 {
+        p:nth-child(2n) {
             grid-column: 1;
             grid-row: 2;
             color: $secondary-color-ft;
@@ -25,16 +25,16 @@
             letter-spacing: 1.3px;
             margin-top: 0px;
             margin-left: 15px;
-            margin-bottom: 3px;
+            margin-bottom: 10px;
         }
-        & p {
-            color: $alt-color-ft;
+        p:nth-child(2n+1) {
             grid-column: 1;
             grid-row: 3;
+            color: $alt-color-ft;
             font-size: 1.2em;
-            margin-top: 0px;
+            margin-top: 10px;
             margin-left: 15px;
-            margin-bottom: 0px;
+            padding-bottom: 10px;
         }
         .photographer__button {
             grid-column: 2;

@@ -22,7 +22,7 @@ loadJSON(function(json) {
     json.photographers.forEach(element => {
 
         // 0 ⇒ CREATE A DIV CARD
-        let divCards = document.createElement("div");
+        let divCards = document.createElement("article");
         divCards.className = "cards";
         let comment = document.createComment("Photographer profile");
         cardsBlock.appendChild(comment);
@@ -55,7 +55,7 @@ loadJSON(function(json) {
         divCardsDescription.setAttribute("aria-label", "Description et tarifs de " + element.name);
         divCards.append(divCardsDescription);
         //// ↳ CREATE CITY
-        let cardsDescriptionCity = document.createElement("h3");
+        let cardsDescriptionCity = document.createElement("p");
         cardsDescriptionCity.innerHTML = element.city + ", " + element.country;
         divCardsDescription.append(cardsDescriptionCity);
         //// ↳ CREATE TAGLINE
@@ -63,7 +63,7 @@ loadJSON(function(json) {
         cardsDescriptionTagline.innerHTML = element.tagline;
         divCardsDescription.append(cardsDescriptionTagline);
         //// ↳ CREATE TAGLINE
-        let cardsDescriptionPrice = document.createElement("h4");
+        let cardsDescriptionPrice = document.createElement("p");
         cardsDescriptionPrice.innerHTML = element.price + "€/jour";
         divCardsDescription.append(cardsDescriptionPrice);
 
@@ -75,13 +75,17 @@ loadJSON(function(json) {
         let ulTaglist = document.createElement("ul");
         ulTaglist.className = "tag-list";
         divCardsTags.append(ulTaglist);
-        //// ↳ CREATE LI
+        //// ↳ CREATE LI + BUTTONS
         element.tags.forEach(element => {
             let liTagList = document.createElement("li");
-            liTagList.className = "tag--static";
-            liTagList.innerHTML = "#" + element;
+            let btnTagList = document.createElement("button");
+            btnTagList.className = "tag--static";
+            btnTagList.innerHTML = "#" + element;
+            btnTagList.value = element;
+            liTagList.append(btnTagList);
             ulTaglist.append(liTagList);
         });
+
     });
     // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
     filterByTags();

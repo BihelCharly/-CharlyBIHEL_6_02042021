@@ -1,14 +1,15 @@
 // DOM SELECTORS
 // SECTION PHOTOGRAPHER PROFIL
 let photographerName = document.querySelector(".photographer-description h1");
-let photographerCity = document.querySelector(".photographer-description h2");
-let photographerTagline = document.querySelector(".photographer-description p");
+let photographerCity = document.querySelectorAll(".photographer-description p")[0];
+let photographerTagline = document.querySelectorAll(".photographer-description p")[1];
 let photographerTags = document.querySelector(".photographer-description .tag-list");
 let photographerPhoto = document.querySelector(".photographer-description .photographer__photo");
 let labelTotalLikes = document.querySelector(".sticky-label .total-likes");
 let photographerPrice = document.querySelector(".sticky-label .price");
+let modalFormName = document.querySelectorAll(".modal-contact p")[1];
 // SECTION PHOTOGRAPHER PHOTOS
-const getGalleryGrid = document.querySelector(".gallery .grid");
+const gridGallery = document.querySelector(".gallery .grid");
 
 // GET JSON
 function loadJSON(callback) {
@@ -22,47 +23,33 @@ function loadJSON(callback) {
             callback(JSON.parse(xobj.responseText));
         }
     };
-
     xobj.send(null);
 }
 
 // INJECTIONS
 loadJSON(function(json) {
 
-    // FROM ID I GOT IN URL
+    // TO GET ID SENT INTO THE URL
     let url = window.location.href.toString();
     let getPhotographer = url.slice(url.lastIndexOf('=') + 1);
 
-    // SWITCH CASE TO SHOW THE GOOD PHOTOGRAPHER
-    switchResult(getPhotographer);
+    // FIND THE PHOTOGRAPHER OBJECT WITH URL PARAMETER
+    let photographer = result(json.photographers, getPhotographer);
 
-    function switchResult(whoIsIt) {
-        switch (whoIsIt) {
-            case "243":
-                photographer = json.photographers[0];
-                break;
-            case "930":
-                photographer = json.photographers[1];
-                break;
-            case "82":
-                photographer = json.photographers[2];
-                break;
-            case "527":
-                photographer = json.photographers[3];
-                break;
-            case "925":
-                photographer = json.photographers[4];
-                break;
-            case "195":
-                photographer = json.photographers[5];
-                break;
+    function result(object, whoIsIt) {
+        for (i = 0; i < object.length; i++) {
+            if (object[i].id == whoIsIt) {
+                let foundIt = object[i];
+                return foundIt;
+            }
         }
-        return photographer;
     }
 
     function photographerProfil(who, name, city, country, tagline, portrait, price) {
         // page title
         window.document.title = "FishEye - " + name;
+        // contact form name
+        modalFormName.innerHTML = name;
         // add name
         photographerName.innerHTML = name;
         // add city
@@ -71,7 +58,7 @@ loadJSON(function(json) {
         photographerTagline.innerHTML = tagline;
         // add tags
         who.tags.forEach(element => {
-            let createTag = '<li class="tag--static">' + element + '</li>';
+            let createTag = '<li class="tag--static">#' + element + '</li>';
             photographerTags.insertAdjacentHTML("beforeend", createTag);
         });
         // add photo
@@ -89,8 +76,11 @@ loadJSON(function(json) {
         // CREATE NEW CARD
         let card = document.createElement("div");
         card.className = "grid-card";
+        // FOR LIGHTBOX
+        let cardLightBox = document.createElement("a");
+        cardLightBox.className = "card__photo hover-shadow cursor";
         // FOR TITLE
-        let cardTitle = document.createElement("h3");
+        let cardTitle = document.createElement("h2");
         cardTitle.className = "card__title";
         cardTitle.setAttribute("aria-label", "titre de la photo");
         // FOR PRICE
@@ -110,7 +100,7 @@ loadJSON(function(json) {
         // CREATE NEW ELEMENT
         let img = new Image();
         let photographerImgFolder = "./public/" + photographer.name;
-        let imgClass = "card__photo hover-shadow cursor";
+        let imgClass = "card__photo";
         let slicedTitle = title.slice(title.lastIndexOf('_') + 1, title.lastIndexOf('.'));
         let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
         img.src = photographerImgFolder + "/" + src;
@@ -123,14 +113,15 @@ loadJSON(function(json) {
         cardLikes.innerHTML = likes;
 
         // ADD ELEMENT INTO THE DOM
-        card.append(img);
+        cardLightBox.append(img);
+        card.append(cardLightBox);
         card.append(cardTitle);
         card.append(cardPrice);
         card.append(cardLikes);
         card.append(cardIconHeart);
-        getGalleryGrid.appendChild(card);
+        gridGallery.appendChild(card);
     }
-    // VAR TO GET TOTAL LIKES
+    // VAR TO INCREMENT TOTAL LIKES LATER
     let totalLikes = 0;
 
     // FOR EACH MEDIA OBJECT IN THE JSON
@@ -147,7 +138,7 @@ loadJSON(function(json) {
                 let card = document.createElement("div");
                 card.className = "grid-card";
                 // FOR TITLE
-                let cardTitle = document.createElement("h3");
+                let cardTitle = document.createElement("h2");
                 cardTitle.className = "card__title";
                 cardTitle.setAttribute("aria-label", "titre de la video");
                 // FOR PRICE
@@ -170,6 +161,7 @@ loadJSON(function(json) {
                 let photographerImgFolder = "./public/" + photographer.name;
                 newVideo.src = photographerImgFolder + "/" + element.video;
                 newVideo.controls = false;
+                newVideo.date = element.date;
                 let slicedTitle = element.video.slice(element.video.lastIndexOf('_') + 1, element.video.lastIndexOf('.'));
                 let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
                 cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
@@ -181,15 +173,15 @@ loadJSON(function(json) {
                 card.append(cardPrice);
                 card.append(cardLikes);
                 card.append(cardIconHeart);
-                getGalleryGrid.appendChild(card);
+                gridGallery.appendChild(card);
             }
             // INCREMENTS THE TOTALLIKES VAR WITH EACH LIKES FROM ELEMENTS
             totalLikes += element.likes;
         }
+        // ADD TOTAL LIKES TO THE BOTTOMED LABEl
         let test = document.querySelector(".total-likes").firstChild;
         test.textContent = totalLikes;
     });
-
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
 });

@@ -1,7 +1,7 @@
 function filterByTags() {
 
     // DOM SELECTORS
-    const navTags = document.querySelectorAll(".header__navbar .tag-list button");
+    const navTags = document.querySelectorAll(".tag-list button");
     const photographersCards = document.querySelectorAll(".cards-block .cards");
 
     // FOR EACH ELEMENTS IN NAV
@@ -28,13 +28,14 @@ function filterByTags() {
                 // 4TH : WE SEARCH IN EACH CARD
                 photographersCards.forEach(function(item) {
                     // FROM THE LI
-                    let tagLists = item.querySelectorAll("li");
+                    let tagLists = item.querySelectorAll("button");
                     let array = [];
                     // LOOP TO FIND SAME VALUE FROM THE NAVTAG TO THE CARD
                     for (let i = 0; i < tagLists.length; i++) {
                         array.push(tagLists[i].innerHTML);
                         if (array.includes("#" + value)) {
                             // IF IT MATCHS THEN SHOW IT
+                            console.log(item);
                             item.style = "display: block";
                         } else {
                             // OTHERWISE HIDE IT

@@ -2,11 +2,11 @@
 /* COLORS */
 /* LAYOUTS */
 body footer {
-  padding: 50px 0px 50px 0px;
+  padding: 0px 0px 50px 0px;
   text-align: center;
 }
 body footer span {
-  font-size: 1.23em;
+  font-size: 0.77em;
   font-family: "DM bold";
 }
 
@@ -28,7 +28,7 @@ body footer span {
 }
 .header .header__title {
   width: 25%;
-  text-align: left;
+  text-align: center;
   color: #901C1C;
   font-size: 3rem;
 }
@@ -116,12 +116,13 @@ body footer span {
 
 .tag--static {
   cursor: pointer;
+  font-family: "DM medium";
   color: #901C1C;
   background-color: #FAFAFA;
   border: 0.2px solid lightgrey;
   border-radius: 20px;
   padding: 5px 5px;
-  font-size: 0.7em;
+  font-size: 0.8em;
   width: auto;
 }
 .tag--static:hover {
@@ -148,6 +149,67 @@ body footer span {
   appearance: none;
 }
 
+.modal-contact {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #DB8876;
+  padding: 20px;
+  color: #525252;
+  font-size: 1.5em;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  animation-name: modalopen;
+  animation-duration: var(0.8s);
+}
+.modal-contact p {
+  font-family: "DM medium";
+  letter-spacing: 2px;
+  font-size: 2.3em;
+  color: black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.modal-contact .formData input,
+.modal-contact .formData textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.modal-contact button {
+  background-color: #901C1C;
+  font-size: 0.8em;
+  color: white;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.modal-contact button:hover {
+  background-color: #45a049;
+}
+.modal-contact [required] {
+  border: 2px dotted red;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
 .gallery {
   padding: 50px 0px 50px 0px;
 }
@@ -324,7 +386,7 @@ body footer span {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .cards-block .cards {
   width: 33%;
@@ -340,6 +402,7 @@ body footer span {
 }
 
 .photographers {
+  position: relative;
   padding: 100px 0px 50px 0px;
 }
 .photographers h1 {
@@ -347,33 +410,20 @@ body footer span {
   font-size: 2em;
   letter-spacing: 1px;
   position: absolute;
-  top: 45px;
-  right: 400px;
+  top: -80px;
+  right: 15px;
   margin-top: 0px;
 }
 .photographers h2 {
   color: #D3573C;
-  font-size: 1.8em;
+  font-size: 2em;
   letter-spacing: 1.3px;
   margin-bottom: 3px;
 }
-.photographers h3 {
-  color: #901C1C;
-  font-size: 0.9em;
-  font-family: "DM Medium";
-}
-.photographers h4 {
-  color: #525252;
-  font-size: 0.7em;
-  font-family: "DM Medium";
-}
-.photographers p {
-  font-size: 0.7em;
-}
 .photographers .photographer__photo {
   cursor: pointer;
-  height: 280px;
-  width: 280px;
+  height: 230px;
+  width: 230px;
   border: none;
   border-radius: 100%;
   object-fit: cover;
@@ -383,9 +433,23 @@ body footer span {
   padding: 3px 0px 3px 0px;
   margin: 0px;
 }
+.photographers .photographer__description p:nth-child(1) {
+  color: #901C1C;
+  font-size: 0.9em;
+  font-family: "DM Medium";
+}
+.photographers .photographer__description p:nth-child(2) {
+  font-size: 0.7em;
+}
+.photographers .photographer__description p:nth-child(3) {
+  color: #525252;
+  font-size: 0.7em;
+  font-family: "DM Medium";
+}
 .photographers .tag-list {
   width: auto;
   justify-content: center;
+  margin-top: 5px;
   padding: 0px;
 }
 .photographers .tag-list .tag--static {
@@ -415,15 +479,11 @@ body footer span {
   }
 }
 @media (min-width: 1921px) {
-  .photographers {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
   .photographers h1 {
     font-size: 2.3em;
     position: absolute;
-    top: 40px;
-    right: 500px;
+    top: -80px;
+    right: 45px;
     margin-top: 0px;
   }
 }
@@ -435,7 +495,7 @@ body footer span {
 .profile--style .photographer-description {
   margin: 25px;
   display: grid;
-  grid-template-columns: 36% 43% 21%;
+  grid-template-columns: 42% 36% 22%;
   row-gap: 0px;
 }
 .profile--style .photographer-description h1 {
@@ -446,9 +506,9 @@ body footer span {
   letter-spacing: 1.3px;
   margin-top: 0px;
   margin-left: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
-.profile--style .photographer-description h2 {
+.profile--style .photographer-description p:nth-child(2n) {
   grid-column: 1;
   grid-row: 2;
   color: #901C1C;
@@ -456,16 +516,16 @@ body footer span {
   letter-spacing: 1.3px;
   margin-top: 0px;
   margin-left: 15px;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
-.profile--style .photographer-description p {
-  color: #525252;
+.profile--style .photographer-description p:nth-child(2n+1) {
   grid-column: 1;
   grid-row: 3;
+  color: #525252;
   font-size: 1.2em;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-left: 15px;
-  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 .profile--style .photographer-description .photographer__button {
   grid-column: 2;
@@ -522,7 +582,7 @@ body * {
 }
 body header,
 body main {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
 }
 body a {
