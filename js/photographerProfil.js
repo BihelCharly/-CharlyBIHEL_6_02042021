@@ -184,4 +184,8 @@ loadJSON(function(json) {
     });
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
+
+    // CALL SORTBY FUNCTION IN ./JS/sortBy.js
+    sortByBtn.addEventListener("change", sortBy);
+    sortBy();
 });
