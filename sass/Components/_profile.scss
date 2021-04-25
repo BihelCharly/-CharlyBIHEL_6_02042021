@@ -71,6 +71,62 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .profile--style {
+        padding: 0px;
+        margin: 0px;
+    }
+    .profile--style,
+    .photrapher {
+        .photographer-description {
+            font-size: 0.8em;
+            margin: 0px;
+            grid-template-columns: 66% 0% 33%;
+            h1 {
+                font-family: "DM regular";
+                font-size: 2.4em;
+                margin-bottom: 0px
+            }
+            p:nth-child(2n),
+            p:nth-child(2n+1) {
+                margin-top: 0px;
+                margin-bottom: 0px
+            }
+            p:nth-child(2n) {
+                font-size: 1.3em;
+            }
+            p:nth-child(2n+1) {
+                font-size: 1em;
+            }
+            .photographer__photo {
+                align-self: flex-start;
+                justify-self: center;
+                height: 120px;
+                width: 120px;
+            }
+            .tag-list {
+                .tag--static {
+                    font-family: "DM medium";
+                    font-size: 1em;
+                    margin: 1.5px;
+                    padding: 3px;
+                }
+            }
+        }
+    }
+    .gallery {
+        .grid {
+            .grid-card {
+                width: 93%;
+                font-size: 1em;
+                .card__photo {
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 1921px) {
     .profile--style {
         .photographer-description {

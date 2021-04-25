@@ -12,11 +12,11 @@ body footer span {
 
 @media (max-width: 1025px) {
   body footer {
-    padding: 50px 0px 50px 0px;
+    padding: 50px 0px 0px 0px;
     text-align: center;
   }
   body footer span {
-    font-size: 0.8em;
+    font-size: 0.5em;
   }
 }
 .header {
@@ -73,8 +73,9 @@ body footer span {
   }
   .header .header__title {
     width: 100%;
-    font-size: 2em;
+    font-size: 2.8em;
     text-align: left;
+    margin-left: 15px;
   }
   .header .header__navbar {
     padding-top: 20px;
@@ -182,8 +183,11 @@ body footer span {
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   resize: vertical;
+}
+.modal-contact .formData textarea {
+  margin-bottom: 16px;
 }
 .modal-contact button {
   background-color: #901C1C;
@@ -198,13 +202,13 @@ body footer span {
   background-color: #45a049;
 }
 .modal-contact [required] {
-  border: 2px dotted red;
+  border: 2px dotted #901C1C;
 }
 .modal-contact .error {
   margin: 0;
   padding: 0;
   font-size: 0.6em;
-  color: red;
+  color: #901C1C;
 }
 
 @keyframes modalopen {
@@ -214,6 +218,23 @@ body footer span {
   }
   to {
     opacity: 1;
+  }
+}
+@media (max-width: 1025px) {
+  .modal-contact {
+    height: auto;
+    width: 100%;
+  }
+  .modal-contact p {
+    font-family: "DM regular";
+    font-size: 1.6em;
+  }
+  .modal-contact .form__button {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 60px;
   }
 }
 .gallery {
@@ -463,8 +484,9 @@ body footer span {
   margin-right: 3px;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
   .photographers {
+    position: inherit;
     padding: 0px;
   }
   .photographers h1 {
@@ -482,6 +504,14 @@ body footer span {
   }
   .cards-block .cards {
     width: 100%;
+  }
+
+  .photographer__button {
+    position: fixed;
+    bottom: 35px;
+    justify-self: center;
+    padding: 6px 6px;
+    font-size: 1.5em;
   }
 }
 @media (min-width: 1921px) {
@@ -566,6 +596,62 @@ body footer span {
   padding: 1px 9px;
 }
 
+@media (max-width: 1024px) {
+  .profile--style {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .profile--style .photographer-description,
+.photrapher .photographer-description {
+    font-size: 0.8em;
+    margin: 0px;
+    grid-template-columns: 66% 0% 33%;
+  }
+  .profile--style .photographer-description h1,
+.photrapher .photographer-description h1 {
+    font-family: "DM regular";
+    font-size: 2.4em;
+    margin-bottom: 0px;
+  }
+  .profile--style .photographer-description p:nth-child(2n),
+.profile--style .photographer-description p:nth-child(2n+1),
+.photrapher .photographer-description p:nth-child(2n),
+.photrapher .photographer-description p:nth-child(2n+1) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .profile--style .photographer-description p:nth-child(2n),
+.photrapher .photographer-description p:nth-child(2n) {
+    font-size: 1.3em;
+  }
+  .profile--style .photographer-description p:nth-child(2n+1),
+.photrapher .photographer-description p:nth-child(2n+1) {
+    font-size: 1em;
+  }
+  .profile--style .photographer-description .photographer__photo,
+.photrapher .photographer-description .photographer__photo {
+    align-self: flex-start;
+    justify-self: center;
+    height: 120px;
+    width: 120px;
+  }
+  .profile--style .photographer-description .tag-list .tag--static,
+.photrapher .photographer-description .tag-list .tag--static {
+    font-family: "DM medium";
+    font-size: 1em;
+    margin: 1.5px;
+    padding: 3px;
+  }
+
+  .gallery .grid .grid-card {
+    width: 93%;
+    font-size: 1em;
+  }
+  .gallery .grid .grid-card .card__photo {
+    height: 200px;
+  }
+}
 @media (min-width: 1921px) {
   .profile--style .photographer-description {
     grid-template-columns: 25% 55% 20%;
@@ -617,6 +703,11 @@ body a:visited {
   font-family: "DM medium";
 }
 
+@media (max-width: 1024px) {
+  .sticky-label {
+    display: none;
+  }
+}
 @media (min-width: 1990px) {
   body header,
 body main {

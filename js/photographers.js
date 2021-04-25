@@ -41,8 +41,8 @@ loadJSON(function(json) {
         let photographerPortrait = new Image();
         photographerPortrait.src = "./public/ID/" + element.portrait;
         photographerPortrait.className = "photographer__photo";
-        photographerPortrait.title = "test";
-        photographerPortrait.alt = "test";
+        photographerPortrait.title = "Portrait de " + element.name;
+        photographerPortrait.alt = "Portrait de " + element.name;
         divCardsLink.append(photographerPortrait);
         //// ↳ CREATE NAME
         let divCardsPhotographerName = document.createElement("h2");
