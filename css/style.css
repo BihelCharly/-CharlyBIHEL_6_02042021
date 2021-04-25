@@ -200,6 +200,12 @@ body footer span {
 .modal-contact [required] {
   border: 2px dotted red;
 }
+.modal-contact .error {
+  margin: 0;
+  padding: 0;
+  font-size: 0.6em;
+  color: red;
+}
 
 @keyframes modalopen {
   from {

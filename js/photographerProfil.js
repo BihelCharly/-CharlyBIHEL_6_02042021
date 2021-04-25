@@ -15,7 +15,6 @@ const gridGallery = document.querySelector(".gallery .grid");
 function loadJSON(callback) {
     let xobj = new XMLHttpRequest();
     xobj.overrideMimeType("/application/json");
-    //xobj.open('GET', 'js/photographers.json', true);
     xobj.open('GET', 'js/FishEyeDataFR.json', true);
     xobj.setRequestHeader('Content-type', 'application/json');
     xobj.onreadystatechange = function() {
@@ -45,53 +44,54 @@ loadJSON(function(json) {
         }
     }
 
+    // CREATE PHOTOGRAPHER PROFILE
     function photographerProfil(who, name, city, country, tagline, portrait, price) {
-        // page title
+        // TITLE
         window.document.title = "FishEye - " + name;
-        // contact form name
+        // NAME FOR THE FORM
         modalFormName.innerHTML = name;
-        // add name
+        // NAME
         photographerName.innerHTML = name;
-        // add city
+        // CITY
         photographerCity.innerHTML = city + "," + country;
-        // add tagline
+        // TAGLINE
         photographerTagline.innerHTML = tagline;
-        // add tags
+        // TAGS
         who.tags.forEach(element => {
             let createTag = '<li class="tag--static">#' + element + '</li>';
             photographerTags.insertAdjacentHTML("beforeend", createTag);
         });
-        // add photo
+        // PORTRAIT PHOTO
         photographerPhoto.src = './public/ID/' + portrait;
         photographerPhoto.title = 'Photo de profil de ' + name;
         photographerPhoto.alt = 'Photo de profil de ' + name;
-        // add price to sticky label
+        // PRICE FOR STICKY LABEL
         photographerPrice.textContent = price + "€ / jour";
     }
     photographerProfil(photographer, photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.portrait, photographer.price);
 
     // ADD PHOTOS IN THE GALLERY SECTION
     function addIMG(src, title, alt, price, likes, date, tags) {
-        // CALL THE FUNCTION WHO CREATE ELEMENTS FOR
+        // CALL THE FUNCTION WHO CREATES ELEMENTS FOR
         // CREATE NEW CARD
         let card = document.createElement("div");
         card.className = "grid-card";
-        // FOR LIGHTBOX
+        // LIGHTBOX
         let cardLightBox = document.createElement("a");
         cardLightBox.className = "card__photo hover-shadow cursor";
-        // FOR TITLE
+        // TITLE
         let cardTitle = document.createElement("h2");
         cardTitle.className = "card__title";
         cardTitle.setAttribute("aria-label", "titre de la photo");
-        // FOR PRICE
+        // PRICE
         let cardPrice = document.createElement("p");
         cardPrice.className = "card__price";
         cardPrice.setAttribute("aria-label", "prix de la photo");
-        // FOR LIKES
+        // LIKES
         let cardLikes = document.createElement("p");
         cardLikes.className = "card__likes";
         cardLikes.setAttribute("aria-label", "compteur de j'aime");
-        // FOR HEART ICON
+        // HEART ICON
         let cardIconHeart = document.createElement("button");
         cardIconHeart.className = "fas fa-heart fa-xs";
         cardIconHeart.setAttribute("aria-label", "bouton j'aime");
@@ -108,8 +108,9 @@ loadJSON(function(json) {
         img.alt = perfectTitle;
         img.title = perfectTitle;
         img.date = date;
+        img.setAttribute("data-tag", title.split('_')[0].toLowerCase());
         cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
-        cardPrice.innerHTML = price;
+        cardPrice.innerHTML = price + "€";
         cardLikes.innerHTML = likes;
 
         // ADD ELEMENT INTO THE DOM
@@ -133,7 +134,7 @@ loadJSON(function(json) {
                 // ADD EVERYTHING A PHOTO NEED FROM THE JSON
                 addIMG(element.image, element.image, element.image, element.price, element.likes, element.date, element.tags);
             } else {
-                // ADD EVEYTHING A VIDEO NEED FROM JSON
+                // ADD EVERYTHING A VIDEO NEED FROM JSON
                 // CREATE NEW CARD
                 let card = document.createElement("div");
                 card.className = "grid-card";
@@ -154,20 +155,22 @@ loadJSON(function(json) {
                 cardIconHeart.className = "fas fa-heart fa-xs";
                 cardIconHeart.setAttribute("aria-label", "bouton j'aime");
                 cardIconHeart.setAttribute("value", element.likes);
-                // Create an element <video>
+                // CREATE VIDEO ELEMENT
                 let newVideo = document.createElement("video");
                 newVideo.className = "card__photo card__video hover-shadow cursor";
-                // Set the attributes of the video
+                // FOR VIDEO ATTRIBUTES => NOPRELOAD+POSTERIMG
                 let photographerImgFolder = "./public/" + photographer.name;
                 newVideo.src = photographerImgFolder + "/" + element.video;
+                newVideo.setAttribute("preload", "none");
+                newVideo.poster = newVideo.src.split('.')[0] + ".jpg";
                 newVideo.controls = false;
                 newVideo.date = element.date;
                 let slicedTitle = element.video.slice(element.video.lastIndexOf('_') + 1, element.video.lastIndexOf('.'));
                 let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
                 cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
-                cardPrice.innerHTML = element.price;
+                cardPrice.innerHTML = element.price + "€";
                 cardLikes.innerHTML = element.likes;
-                // Add the video to <div>
+                // ADD VIDEO => DOM
                 card.append(newVideo);
                 card.append(cardTitle);
                 card.append(cardPrice);
@@ -184,8 +187,4 @@ loadJSON(function(json) {
     });
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
-
-    // CALL SORTBY FUNCTION IN ./JS/sortBy.js
-    sortByBtn.addEventListener("change", sortBy);
-    sortBy();
 });

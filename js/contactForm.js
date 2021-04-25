@@ -15,8 +15,6 @@ let inputSubject = document.querySelector("#subject");
 
 // REGEX
 const regExEmail = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-const regExDate = new RegExp(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/);
-const regExNb = new RegExp(/^[0-9]+$/);
 
 // EVENTLISTENER TO SHOW CONTACT FORM
 modalBtn.addEventListener('click', event => {
@@ -37,6 +35,7 @@ subBtn.addEventListener('click', event => {
         } else {
             element.placeholder = "Veuillez remplir ce champ";
             element.style = "border: 4px solid #901C1C";
+            element.nextElementSibling.textContent = 'Merci de remplir ce champs';
             state = false;
             return state;
         }

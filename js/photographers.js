@@ -85,7 +85,6 @@ loadJSON(function(json) {
             liTagList.append(btnTagList);
             ulTaglist.append(liTagList);
         });
-
     });
     // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
     filterByTags();
