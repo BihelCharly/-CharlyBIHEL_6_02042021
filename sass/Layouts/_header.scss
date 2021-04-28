@@ -18,6 +18,9 @@
             }
         }
     }
+    .header__navbar {
+        width: 50%;
+    }
     .photographer--page {
         width: 100%;
         text-align: left;
@@ -42,7 +45,7 @@
     }
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1272px) {
     .header {
         width: 100%;
         padding-top: 20px;

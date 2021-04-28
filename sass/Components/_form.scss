@@ -7,13 +7,21 @@
     border-radius: 5px;
     background-color: $form-color;
     padding: 20px;
-    color: $alt-color-ft;
     font-size: 1.5em;
     width: 35%;
     margin-left: auto;
     margin-right: auto;
     animation-name: modalopen;
     animation-duration: var(0.8s);
+    .close--form {
+        cursor: pointer;
+        position: fixed;
+        top: -35px;
+        right: 20px;
+        font-size: 5.5em;
+        color: white;
+        -webkit-text-stroke: 3px $form-color;
+    }
     & p {
         font-family: "DM medium";
         letter-spacing: 2px;
@@ -32,6 +40,13 @@
         margin-top: 6px;
         margin-bottom: 5px;
         resize: vertical;
+    }
+    form {
+        padding-top: 20px;
+    }
+    label {
+        font-size: 1.5em;
+        color: #202020;
     }
     .formData textarea {
         margin-bottom: 16px;

@@ -12,6 +12,7 @@ let inputFirstName = document.querySelector("#first");
 let inputLastName = document.querySelector("#last");
 let inputEmail = document.querySelector("#email");
 let inputSubject = document.querySelector("#subject");
+let btnCloseForm = document.querySelector(".close--form");
 
 // REGEX
 const regExEmail = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
@@ -25,6 +26,14 @@ modalBtn.addEventListener('click', event => {
 });
 
 // EVENTLISTENER TO HIDE CONTACT FORM
+btnCloseForm.addEventListener('click', event => {
+    header.style.opacity = "1";
+    main.style.opacity = "1";
+    modalForm.style = "opacity : 0";
+    modalForm.style.display = "none";
+});
+
+
 subBtn.addEventListener('click', event => {
     event.preventDefault();
     let state;

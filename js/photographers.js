@@ -88,4 +88,5 @@ loadJSON(function(json) {
     });
     // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
     filterByTags();
+
 });

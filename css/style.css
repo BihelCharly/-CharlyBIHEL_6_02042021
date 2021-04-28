@@ -40,6 +40,9 @@ body footer span {
 .header .header__title .title:visited {
   color: inherit;
 }
+.header .header__navbar {
+  width: 50%;
+}
 .header .photographer--page {
   width: 100%;
   text-align: left;
@@ -63,7 +66,7 @@ body footer span {
   margin-right: 3px;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1272px) {
   .header {
     width: 100%;
     padding-top: 20px;
@@ -159,13 +162,21 @@ body footer span {
   border-radius: 5px;
   background-color: #DB8876;
   padding: 20px;
-  color: #525252;
   font-size: 1.5em;
   width: 35%;
   margin-left: auto;
   margin-right: auto;
   animation-name: modalopen;
   animation-duration: var(0.8s);
+}
+.modal-contact .close--form {
+  cursor: pointer;
+  position: fixed;
+  top: -35px;
+  right: 20px;
+  font-size: 5.5em;
+  color: white;
+  -webkit-text-stroke: 3px #DB8876;
 }
 .modal-contact p {
   font-family: "DM medium";
@@ -185,6 +196,13 @@ body footer span {
   margin-top: 6px;
   margin-bottom: 5px;
   resize: vertical;
+}
+.modal-contact form {
+  padding-top: 20px;
+}
+.modal-contact label {
+  font-size: 1.5em;
+  color: #202020;
 }
 .modal-contact .formData textarea {
   margin-bottom: 16px;
@@ -408,6 +426,85 @@ body footer span {
     height: 250px;
   }
 }
+.lightbox__photo img,
+.lightbox__photo video {
+  object-fit: cover;
+  height: 700px;
+  width: 700px;
+}
+
+.modal-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  opacity: 60%;
+}
+
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.lightbox-content .lightbox__caption {
+  color: #901C1C;
+  font-size: 2em;
+  margin: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #901C1C;
+  position: absolute;
+  top: -40px;
+  right: -70px;
+  font-size: 6em;
+  font-weight: bold;
+  -webkit-text-stroke: 3px white;
+}
+
+.close:hover,
+.close:focus {
+  color: #D3573C;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin: -50px;
+  color: #901C1C;
+  font-size: 4em;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-text-stroke: 2px white;
+}
+.prev:hover,
+.next:hover {
+  color: #D3573C;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
 .cards-block {
   width: 100%;
   display: flex;
@@ -484,7 +581,7 @@ body footer span {
   margin-right: 3px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1272px) {
   .photographers {
     position: inherit;
     padding: 0px;

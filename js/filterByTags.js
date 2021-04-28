@@ -35,7 +35,6 @@ function filterByTags() {
                         array.push(tagLists[i].innerHTML);
                         if (array.includes("#" + value)) {
                             // IF IT MATCHS THEN SHOW IT
-                            console.log(item);
                             item.style = "display: block";
                         } else {
                             // OTHERWISE HIDE IT
