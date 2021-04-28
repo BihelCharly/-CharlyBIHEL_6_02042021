@@ -39,7 +39,6 @@ function lightBox() {
                 let prevNode = collection[i].previousSibling.firstChild;
                 let nextNode = collection[i].nextSibling.firstChild;
                 let state = result(prevNode);
-                console.log(state);
                 if (state == true) {
                     let prevClonedNode = prevNode.firstChild.cloneNode(true);
                     let nextClonedNode = nextNode.firstChild.cloneNode(true);
@@ -52,10 +51,10 @@ function lightBox() {
     }
 
     function result(test) {
-        if (test == null || test == undefined) {
-            return false;
-        } else {
+        if (test !== null || test !== undefined) {
             return true;
+        } else {
+            return false;
         }
     }
 
