@@ -58,7 +58,6 @@ function lightBox() {
         }
     }
 
-
     lightBoxArrows.forEach((event) => event.addEventListener("click", showNewSlide));
 
     function showNewSlide(target) {

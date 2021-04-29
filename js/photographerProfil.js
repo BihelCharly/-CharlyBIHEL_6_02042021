@@ -70,129 +70,34 @@ loadJSON(function(json) {
     }
     photographerProfil(photographer, photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.portrait, photographer.price);
 
-    // ADD PHOTOS IN THE GALLERY SECTION
-    function addIMG(src, title, alt, price, likes, date, tags) {
-        // CALL THE FUNCTION WHO CREATES ELEMENTS FOR
-        // CREATE NEW CARD
-        let card = document.createElement("div");
-        card.className = "grid-card";
-        // LIGHTBOX
-        let cardLightBox = document.createElement("a");
-        cardLightBox.className = "card__photo hover-shadow cursor";
-        // TITLE
-        let cardTitle = document.createElement("h2");
-        cardTitle.className = "card__title";
-        cardTitle.setAttribute("aria-label", "titre de la photo");
-        // PRICE
-        let cardPrice = document.createElement("p");
-        cardPrice.className = "card__price";
-        cardPrice.setAttribute("aria-label", "prix de la photo");
-        // LIKES
-        let cardLikes = document.createElement("p");
-        cardLikes.className = "card__likes";
-        cardLikes.setAttribute("aria-label", "compteur de j'aime");
-        // HEART ICON
-        let cardIconHeart = document.createElement("button");
-        cardIconHeart.className = "fas fa-heart fa-xs";
-        cardIconHeart.setAttribute("aria-label", "bouton j'aime");
-        cardIconHeart.setAttribute("value", likes);
-
-        // CREATE NEW ELEMENT
-        let img = new Image();
-        let photographerImgFolder = "./public/" + photographer.name;
-        let imgClass = "card__photo";
-        let slicedTitle = title.slice(title.lastIndexOf('_') + 1, title.lastIndexOf('.'));
-        let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
-        img.src = photographerImgFolder + "/" + src;
-        img.className = imgClass;
-        img.alt = perfectTitle;
-        img.title = perfectTitle;
-        img.date = date;
-        img.setAttribute("data-tag", title.split('_')[0].toLowerCase());
-        cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
-        cardPrice.innerHTML = price + "€";
-        cardLikes.innerHTML = likes;
-
-        // ADD ELEMENT INTO THE DOM
-        cardLightBox.append(img);
-        card.append(cardLightBox);
-        card.append(cardTitle);
-        card.append(cardPrice);
-        card.append(cardLikes);
-        card.append(cardIconHeart);
-        gridGallery.appendChild(card);
-    }
-    // VAR TO INCREMENT TOTAL LIKES LATER
-    let totalLikes = 0;
-
     // FOR EACH MEDIA OBJECT IN THE JSON
     json.media.forEach(element => {
         // IF THE ID FROM THE MEDIA OBJECT IS = TO ID FROM PHOTOGRAPHERS OBJECT
         if (element.photographerId === photographer.id) {
             // ADD TOTAL LIKES FROM JSON IN PAGE'S BOTTOM
             if (element.image !== undefined) {
-                // ADD EVERYTHING A PHOTO NEED FROM THE JSON
-                addIMG(element.image, element.image, element.image, element.price, element.likes, element.date, element.tags);
+                // ADD EVERYTHING A PHOTO NEED FROM FACTORY METHOD
+                let factoryMethod = factory(photographer, element.image, element.price, element.likes, element.date, element.tags);
+                createNewCard(factoryMethod.cardContainer, factoryMethod.cardLightbox, factoryMethod.cardTitle, factoryMethod.cardPrice, factoryMethod.cardLikes, factoryMethod.cardIcon, factoryMethod.cardImg);
             } else {
-                // ADD EVERYTHING A VIDEO NEED FROM JSON
-                // CREATE NEW CARD
-                let card = document.createElement("div");
-                card.className = "grid-card";
-                // LIGHTBOX
-                let cardLightBox = document.createElement("a");
-                cardLightBox.className = "card__photo hover-shadow cursor";
-                // FOR TITLE
-                let cardTitle = document.createElement("h2");
-                cardTitle.className = "card__title";
-                cardTitle.setAttribute("aria-label", "titre de la video");
-                // FOR PRICE
-                let cardPrice = document.createElement("p");
-                cardPrice.className = "card__price";
-                cardPrice.setAttribute("aria-label", "prix de la video");
-                // FOR LIKES
-                let cardLikes = document.createElement("p");
-                cardLikes.className = "card__likes";
-                cardLikes.setAttribute("aria-label", "compteur de j'aime");
-                // FOR HEART ICON
-                let cardIconHeart = document.createElement("button");
-                cardIconHeart.className = "fas fa-heart fa-xs";
-                cardIconHeart.setAttribute("aria-label", "bouton j'aime");
-                cardIconHeart.setAttribute("value", element.likes);
-                // CREATE VIDEO ELEMENT
-                let newVideo = document.createElement("video");
-                newVideo.className = "card__photo card__video hover-shadow cursor";
-                // FOR VIDEO ATTRIBUTES => NOPRELOAD+POSTERIMG
-                let photographerImgFolder = "./public/" + photographer.name;
-                let slicedTitle = element.video.slice(element.video.lastIndexOf('_') + 1, element.video.lastIndexOf('.'));
-                let perfectTitle = slicedTitle.replace(/([A-Z])/g, ' $1').trim();
-                newVideo.src = photographerImgFolder + "/" + element.video;
-                newVideo.setAttribute("preload", "none");
-                newVideo.poster = newVideo.src.split('.')[0] + ".jpg";
-                newVideo.controls = false;
-                newVideo.date = element.date;
-                newVideo.title = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);;
-                cardTitle.innerHTML = perfectTitle.charAt(0).toUpperCase() + perfectTitle.slice(1);
-                cardPrice.innerHTML = element.price + "€";
-                cardLikes.innerHTML = element.likes;
-                // ADD VIDEO => DOM
-                cardLightBox.append(newVideo);
-                card.append(cardLightBox);
-                card.append(cardTitle);
-                card.append(cardPrice);
-                card.append(cardLikes);
-                card.append(cardIconHeart);
-                gridGallery.appendChild(card);
+                console.log("VIDEO A FAIRE");
             }
-            // INCREMENTS THE TOTALLIKES VAR WITH EACH LIKES FROM ELEMENTS
-            totalLikes += element.likes;
         }
-        // ADD TOTAL LIKES TO THE BOTTOMED LABEl
-        let test = document.querySelector(".total-likes").firstChild;
-        test.textContent = totalLikes;
     });
     // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
-
     // CALL FUNCTION FOR LIKE LIGHTBOX IN ./JS/LIGHTBOX.JS
     lightBox();
 });
+
+
+
+function createNewCard(container, lightbox, title, price, likes, icon, img) {
+    lightbox.append(img);
+    container.append(lightbox);
+    container.append(title);
+    container.append(price);
+    container.append(likes);
+    container.append(icon);
+    gridGallery.appendChild(container);
+}
