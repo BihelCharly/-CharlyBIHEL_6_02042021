@@ -28,72 +28,74 @@ function loadJSON(callback) {
 // INJECTIONS
 loadJSON(function(json) {
 
-    // TO GET ID SENT INTO THE URL
+    // GET ID IN URL
     let url = window.location.href.toString();
-    let getPhotographer = url.slice(url.lastIndexOf('=') + 1);
+    let id = url.slice(url.lastIndexOf('=') + 1);
 
-    // FIND THE PHOTOGRAPHER OBJECT WITH URL PARAMETER
-    let photographer = result(json.photographers, getPhotographer);
+    // FIND PHOTOGRAPHER OBJECT WITH ID PARAMETER
+    const photographer = result(json.photographers, id);
 
-    function result(object, whoIsIt) {
+    function result(object, id) {
         for (i = 0; i < object.length; i++) {
-            if (object[i].id == whoIsIt) {
-                let foundIt = object[i];
-                return foundIt;
+            if (object[i].id == id) {
+                let result = object[i];
+                return result;
             }
         }
     }
 
     // CREATE PHOTOGRAPHER PROFILE
-    function photographerProfil(who, name, city, country, tagline, portrait, price) {
-        // TITLE
+    (function(name, city, country, tagline, tags, portrait, price) {
+        // WINDOW TITLE
         window.document.title = "FishEye - " + name;
-        // NAME FOR THE FORM
+        // NAME FOR MODAL
         modalFormName.innerHTML = name;
-        // NAME
+        // DESCRIPTION
         photographerName.innerHTML = name;
-        // CITY
         photographerCity.innerHTML = city + "," + country;
-        // TAGLINE
         photographerTagline.innerHTML = tagline;
-        // TAGS
-        who.tags.forEach(element => {
-            let createTag = '<li class="tag--static">#' + element + '</li>';
-            photographerTags.insertAdjacentHTML("beforeend", createTag);
-        });
-        // PORTRAIT PHOTO
+        tags.forEach(item => { photographerTags.insertAdjacentHTML("beforeend", '<li class="tag--static">#' + item + '</li>'); });
+        // PHOTO
         photographerPhoto.src = './public/ID/' + portrait;
         photographerPhoto.title = 'Photo de profil de ' + name;
         photographerPhoto.alt = 'Photo de profil de ' + name;
-        // PRICE FOR STICKY LABEL
+        // PRICE IN STICKY LABEL
         photographerPrice.textContent = price + "€ / jour";
-    }
-    photographerProfil(photographer, photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.portrait, photographer.price);
+        //PARAMETERS FROM JSON
+    })(photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.tags, photographer.portrait, photographer.price);
+
 
     // FOR EACH MEDIA OBJECT IN THE JSON
-    json.media.forEach(element => {
+    json.media.forEach(object => {
         // IF THE ID FROM THE MEDIA OBJECT IS = TO ID FROM PHOTOGRAPHERS OBJECT
-        if (element.photographerId === photographer.id) {
+        if (object.photographerId === photographer.id) {
             // ADD TOTAL LIKES FROM JSON IN PAGE'S BOTTOM
-            if (element.image !== undefined) {
-                // ADD EVERYTHING A PHOTO NEED FROM FACTORY METHOD
-                let factoryMethod = factory(photographer, element.image, element.price, element.likes, element.date, element.tags);
-                createNewCard(factoryMethod.cardContainer, factoryMethod.cardLightbox, factoryMethod.cardTitle, factoryMethod.cardPrice, factoryMethod.cardLikes, factoryMethod.cardIcon, factoryMethod.cardImg);
-            } else {
-                console.log("VIDEO A FAIRE");
-            }
+            const media = (function(object) {
+                if (object.hasOwnProperty('image')) {
+                    let media = object.image;
+                    return media;
+                } else if (object.hasOwnProperty('video')) {
+                    let media = object.video;
+                    return media;
+                } else {
+                    let error = console.log('Veuillez modifier le format de cet élément');
+                    return error;
+                }
+            })(object);
+            // ADD EVERYTHING FROM FACTORY METHOD
+            const builder = factory(photographer, media, object.price, object.likes, object.date, object.tags);
+            createNewCard(builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon, builder.cardVideo);
         }
     });
-    // CALL FUNCTION FOR LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
+    // LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
-    // CALL FUNCTION FOR LIKE LIGHTBOX IN ./JS/LIGHTBOX.JS
+    // LIGHTBOX IN ./JS/LIGHTBOX.JS
     lightBox();
 });
 
-
-
-function createNewCard(container, lightbox, title, price, likes, icon, img) {
-    lightbox.append(img);
+// APPEND ELEMENT TROUGHT THE DOM
+function createNewCard(container, lightbox, title, price, likes, icon, media) {
+    lightbox.append(media);
     container.append(lightbox);
     container.append(title);
     container.append(price);

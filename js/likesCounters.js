@@ -9,7 +9,6 @@ function likesCounters() {
         let cardHeartValue = cardHeart.value;
         let cardCounter = element.querySelector(".card__likes");
         cardHeart.addEventListener('click', function() {
-
             // UP COUNTERS FOR HIMSELF
             cardHeartValueParsed = parseInt(cardHeartValue);
             let upCounters = cardHeartValueParsed + i++;
