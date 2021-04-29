@@ -53,7 +53,7 @@ function factory(object, source, price, likes, date, tags) {
     const cardImage = (function(object, source) {
         let image = new Image();
         image.src = './public/' + object.name + '/' + source;
-        image.className = 'card__photo';
+        image.className = 'card__photo hover-shadow cursor';
         image.title = newTitle;
         image.alt = newTitle;
         image.date = date;
@@ -63,9 +63,9 @@ function factory(object, source, price, likes, date, tags) {
     const cardVideo = (function(object, source) {
         let video = document.createElement('video');
         video.setAttribute('preload', 'none');
+        video.poster = './public/' + object.name + '/' + source.split('.')[0] + '.jpg';
         video.src = './public/' + object.name + '/' + source;
-        video.className = 'card__photo card__video hover-shadow cursor';
-        video.poster = video.src.split('.')[0] + '.jpg';
+        video.className = 'card__photo hover-shadow cursor';
         video.controls = false;
         video.title = newTitle;
         video.date = date;
