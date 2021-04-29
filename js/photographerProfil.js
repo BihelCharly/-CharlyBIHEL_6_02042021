@@ -61,9 +61,8 @@ loadJSON(function(json) {
         photographerPhoto.alt = 'Photo de profil de ' + name;
         // PRICE IN STICKY LABEL
         photographerPrice.textContent = price + "€ / jour";
-        //PARAMETERS FROM JSON
+        // PARAMETERS FROM JSON
     })(photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.tags, photographer.portrait, photographer.price);
-
 
     // FOR EACH MEDIA OBJECT IN THE JSON
     json.media.forEach(object => {
@@ -77,17 +76,23 @@ loadJSON(function(json) {
                 } else if (object.hasOwnProperty('video')) {
                     let media = object.video;
                     return media;
-                } else {
-                    let error = console.log('Veuillez modifier le format de cet élément');
-                    return error;
                 }
             })(object);
-            // ADD EVERYTHING FROM FACTORY METHOD
+            // FACTORY METHOD TO BUILD CARDS
             const builder = factory(photographer, media, object.price, object.likes, object.date, object.tags);
-            createNewCard(builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon, builder.cardVideo);
+            // CHANGE CARD TYPE FROM RETURNED VALUE IN MEDIA
+            const cardType = (function(media) {
+                switch (media) {
+                    case object.image:
+                        return builder.cardImage;
+                    case object.video:
+                        return builder.cardVideo;
+                }
+            })(media);
+            createNewCard(builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon, cardType);
         }
     });
-    // LIKE COUNTERS IN ./JS/LIKESCOUNTERS.JS
+    // LIKES COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
     // LIGHTBOX IN ./JS/LIGHTBOX.JS
     lightBox();
