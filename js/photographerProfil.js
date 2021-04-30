@@ -64,15 +64,25 @@ loadJSON(function(json) {
         // PARAMETERS FROM JSON
     })(photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.tags, photographer.portrait, photographer.price);
 
-    // FOR EACH MEDIA OBJECT IN THE JSON
+    // TOTAL LIKES
+    let totalLikes = 0;
+
+    function totalLike(likes) {
+        totalLikes += likes;
+        return totalLikes;
+    }
+    // FOR EACH MEDIA OBJECTS IN JSON
     json.media.forEach(media => {
-        // IF THE ID FROM THE MEDIA OBJECT IS = TO ID FROM PHOTOGRAPHERS OBJECT
+        // IF ID FROM MEDIA OBJECT IS = ID FROM PHOTOGRAPHERS OBJECT
         if (media.photographerId === photographer.id) {
             // FACTORY METHOD TO BUILD CARDS IN ./JS/FACTORY.JS
             const builder = Factory(photographer, media, media.price, media.likes, media.date, media.tags);
             createNewCard(builder.cardMedia, builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon);
+            totalLike(media.likes);
         }
     });
+    // ADD TOTAL LIKES IN THE DOM
+    labelTotalLikes.textContent = totalLikes;
     // LIKES COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
     // LIGHTBOX IN ./JS/LIGHTBOX.JS
