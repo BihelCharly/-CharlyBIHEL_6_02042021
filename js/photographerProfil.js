@@ -65,31 +65,12 @@ loadJSON(function(json) {
     })(photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.tags, photographer.portrait, photographer.price);
 
     // FOR EACH MEDIA OBJECT IN THE JSON
-    json.media.forEach(object => {
+    json.media.forEach(media => {
         // IF THE ID FROM THE MEDIA OBJECT IS = TO ID FROM PHOTOGRAPHERS OBJECT
-        if (object.photographerId === photographer.id) {
-            // ADD TOTAL LIKES FROM JSON IN PAGE'S BOTTOM
-            const media = (function(object) {
-                if (object.hasOwnProperty('image')) {
-                    let media = object.image;
-                    return media;
-                } else if (object.hasOwnProperty('video')) {
-                    let media = object.video;
-                    return media;
-                }
-            })(object);
-            // FACTORY METHOD TO BUILD CARDS
-            const builder = factory(photographer, media, object.price, object.likes, object.date, object.tags);
-            // CHANGE CARD TYPE FROM RETURNED VALUE IN MEDIA
-            const cardType = (function(media) {
-                switch (media) {
-                    case object.image:
-                        return builder.cardImage;
-                    case object.video:
-                        return builder.cardVideo;
-                }
-            })(media);
-            createNewCard(builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon, cardType);
+        if (media.photographerId === photographer.id) {
+            // FACTORY METHOD TO BUILD CARDS IN ./JS/FACTORY.JS
+            const builder = Factory(photographer, media, media.price, media.likes, media.date, media.tags);
+            createNewCard(builder.cardMedia, builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon);
         }
     });
     // LIKES COUNTERS IN ./JS/LIKESCOUNTERS.JS
@@ -97,14 +78,3 @@ loadJSON(function(json) {
     // LIGHTBOX IN ./JS/LIGHTBOX.JS
     lightBox();
 });
-
-// APPEND ELEMENT TROUGHT THE DOM
-function createNewCard(container, lightbox, title, price, likes, icon, media) {
-    lightbox.append(media);
-    container.append(lightbox);
-    container.append(title);
-    container.append(price);
-    container.append(likes);
-    container.append(icon);
-    gridGallery.appendChild(container);
-}
