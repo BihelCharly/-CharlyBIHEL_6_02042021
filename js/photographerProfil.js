@@ -1,11 +1,11 @@
 // DOM SELECTORS
 // SECTION PHOTOGRAPHER PROFIL
 let photographerName = document.querySelector(".photographer-description h1");
-let photographerCity = document.querySelectorAll(".photographer-description p")[0];
-let photographerTagline = document.querySelectorAll(".photographer-description p")[1];
+let photographerCity = document.querySelectorAll(".photographer-description div p")[0];
+let photographerTagline = document.querySelectorAll(".photographer-description div p")[1];
 let photographerTags = document.querySelector(".photographer-description .tag-list");
 let photographerPhoto = document.querySelector(".photographer-description .photographer__photo");
-let labelTotalLikes = document.querySelector(".sticky-label .total-likes");
+let labelTotalLikes = document.querySelector(".sticky-label .total-likes").firstChild;
 let photographerPrice = document.querySelector(".sticky-label .price");
 let modalFormName = document.querySelectorAll(".modal-contact p")[1];
 // SECTION PHOTOGRAPHER PHOTOS

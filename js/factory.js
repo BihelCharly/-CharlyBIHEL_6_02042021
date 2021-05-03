@@ -10,17 +10,17 @@ function Factory(object, media, price, likes, date, tags) {
         }
         return type;
     };
-
+    // FOR IMAGE
     const MediaImage = function() {
         this.profil = 'image';
         this.path = media.image;
     };
-
+    // FOR VIDEO
     const MediaVideo = function() {
         this.profil = 'video';
         this.path = media.video;
     };
-
+    // SOURCE & MEDIA TYPE
     const mediaPath = createMediaType(media).path;
     const mediaProfil = createMediaType(media).profil;
 
@@ -65,12 +65,14 @@ function Factory(object, media, price, likes, date, tags) {
     // LIGHTBOX
     this.cardLightbox = (() => {
         let element = document.createElement('a');
+        element.setAttribute('tabindex', '10');
         element.className = 'card__photo hover-shadow cursor';
         return element;
     })();
     // TITLE
     this.cardTitle = (function(newTitle) {
         let element = document.createElement('h2');
+        element.setAttribute('tabindex', '11');
         element.className = 'card__title';
         element.innerHTML = newTitle;
         return element;
@@ -85,15 +87,16 @@ function Factory(object, media, price, likes, date, tags) {
     // LIKES
     this.cardLikes = (function(likes) {
         let element = document.createElement('p');
+        element.setAttribute('tabindex', '12');
         element.className = 'card__likes';
         element.innerHTML = likes;
-        element.setAttribute('aria-label', "compteur de j'aime");
         return element;
     })(likes);
     // HEART ICON
     this.cardIcon = (function(likes) {
         element = document.createElement('button');
         element.className = 'fas fa-heart fa-xs';
+        element.setAttribute('tabindex', '13');
         element.setAttribute('value', likes);
         element.setAttribute('aria-label', "bouton j'aime");
         return element;

@@ -52,3 +52,21 @@
     padding: 15px;
     appearance: none;
 }
+
+.top {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: none;
+    border-radius: 5px;
+    padding: 3px 15px;
+    margin-bottom: 0px;
+    background-color: $form-color;
+    color: black;
+    font-size: 1.1em;
+    font-family: "Dm bold";
+    cursor: pointer;
+}

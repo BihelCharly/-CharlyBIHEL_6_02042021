@@ -23,6 +23,9 @@ modalBtn.addEventListener('click', () => {
     main.style.opacity = '0.5';
     modalForm.style = 'opacity : 1';
     modalForm.style.display = 'block';
+    modalBtn.style.display = 'none';
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 });
 
 // TO HIDE CONTACT FORM
@@ -33,6 +36,7 @@ function closeForm() {
     main.style.opacity = '1';
     modalForm.style = 'opacity : 0';
     modalForm.style.display = 'none';
+    modalBtn.style.display = 'block';
 }
 
 // CHECK VALIDATION

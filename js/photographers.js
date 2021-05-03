@@ -14,6 +14,7 @@ function loadJSON(callback) {
 
 // DOM ELEMENTS
 const cardsBlock = document.querySelector(".photographers .cards-block");
+let toTopBtn = document.querySelector(".top");
 
 // INJECTIONS
 loadJSON(function(json) {
@@ -32,9 +33,11 @@ loadJSON(function(json) {
         let firstDivInsideCards = document.createElement("div");
         firstDivInsideCards.className = "photographer";
         firstDivInsideCards.setAttribute("aria-label", "Profil de " + element.name);
+        firstDivInsideCards.setAttribute("tabindex", "5");
         divCards.appendChild(firstDivInsideCards);
         //// ↳ CREATE LINK
         let divCardsLink = document.createElement("a");
+        divCardsLink.setAttribute("tabindex", "5");
         divCardsLink.href = "photographer_profil.html?id=" + element.id;
         firstDivInsideCards.append(divCardsLink);
         //// ↳ CREATE IMG
@@ -53,6 +56,7 @@ loadJSON(function(json) {
         let divCardsDescription = document.createElement("div");
         divCardsDescription.className = "photographer__description";
         divCardsDescription.setAttribute("aria-label", "Description et tarifs de " + element.name);
+        divCardsDescription.setAttribute("tabindex", "6");
         divCards.append(divCardsDescription);
         //// ↳ CREATE CITY
         let cardsDescriptionCity = document.createElement("p");
@@ -74,6 +78,7 @@ loadJSON(function(json) {
         //// ↳ CREATE UL
         let ulTaglist = document.createElement("ul");
         ulTaglist.className = "tag-list";
+        ulTaglist.setAttribute("tabindex", "7");
         divCardsTags.append(ulTaglist);
         //// ↳ CREATE LI + BUTTONS
         element.tags.forEach(element => {
@@ -89,3 +94,22 @@ loadJSON(function(json) {
     // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
     filterByTags();
 });
+
+
+// BUTTON TO GO THE TOP
+window.onscroll = function() { scrollFunction(); };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        toTopBtn.style.display = "block";
+    } else {
+        toTopBtn.style.display = "none";
+    }
+}
+
+toTopBtn.addEventListener('click', goToTop);
+
+function goToTop() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+}

@@ -81,6 +81,7 @@ body footer span {
     margin-left: 15px;
   }
   .header .header__navbar {
+    width: 100%;
     padding-top: 20px;
   }
   .header .tag-list {
@@ -151,6 +152,24 @@ body footer span {
   border-radius: 5px;
   padding: 15px;
   appearance: none;
+}
+
+.top {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border: none;
+  border-radius: 5px;
+  padding: 3px 15px;
+  margin-bottom: 0px;
+  background-color: #DB8876;
+  color: black;
+  font-size: 1.1em;
+  font-family: "Dm bold";
+  cursor: pointer;
 }
 
 .modal-contact {
@@ -238,21 +257,34 @@ body footer span {
     opacity: 1;
   }
 }
-@media (max-width: 1025px) {
+@media (max-width: 1272px) {
   .modal-contact {
+    top: 0px;
+    left: 0px;
     height: auto;
     width: 100%;
+    font-size: 1.2em;
+    transform: none;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .modal-contact p {
     font-family: "DM regular";
     font-size: 1.6em;
   }
-  .modal-contact .form__button {
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  .modal-contact .close--form {
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    font-size: 3em;
+    -webkit-text-stroke: 1px #DB8876;
+  }
+  .modal-contact button {
     padding: 10px 60px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
   }
 }
 .gallery {
@@ -403,7 +435,7 @@ body footer span {
   margin: auto;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1072px) {
   .gallery {
     padding: 0px;
   }
@@ -431,6 +463,8 @@ body footer span {
   object-fit: cover;
   height: 700px;
   width: 700px;
+  border-radius: 5px;
+  box-shadow: 7px 2px 0px lightgray;
 }
 
 .modal-lightbox {
@@ -468,13 +502,13 @@ body footer span {
   font-size: 6em;
   font-weight: bold;
   -webkit-text-stroke: 3px white;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
   color: #D3573C;
   text-decoration: none;
-  cursor: pointer;
 }
 
 /* Next & previous buttons */
@@ -504,6 +538,31 @@ body footer span {
   border-radius: 3px 0 0 3px;
 }
 
+@media (max-width: 1272px) {
+  .lightbox__photo img,
+.lightbox__photo video {
+    height: 300px;
+    width: 280px;
+  }
+
+  .prev,
+.next {
+    font-size: 2em;
+    margin: -25px;
+    -webkit-text-stroke: 1px white;
+  }
+
+  .close {
+    top: -20px;
+    right: -32px;
+    font-size: 3em;
+    -webkit-text-stroke: 1px white;
+  }
+
+  .lightbox-content .lightbox__caption {
+    font-size: 1.3em;
+  }
+}
 .cards-block {
   width: 100%;
   display: flex;
@@ -587,7 +646,7 @@ body footer span {
   }
   .photographers h1 {
     position: absolute;
-    top: 45px;
+    top: 55px;
     right: 20px;
     font-size: 0.8em;
   }
@@ -638,26 +697,24 @@ body footer span {
   letter-spacing: 1.3px;
   margin-top: 0px;
   margin-left: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
-.profile--style .photographer-description p:nth-child(2n) {
+.profile--style .photographer-description div {
   grid-column: 1;
   grid-row: 2;
+  margin-left: 15px;
+  margin-bottom: 0px;
+}
+.profile--style .photographer-description div p:nth-child(2n+1) {
   color: #901C1C;
   font-size: 1.8em;
   letter-spacing: 1.3px;
-  margin-top: 0px;
-  margin-left: 15px;
-  margin-bottom: 10px;
+  margin-top: -15px;
 }
-.profile--style .photographer-description p:nth-child(2n+1) {
-  grid-column: 1;
-  grid-row: 3;
+.profile--style .photographer-description div p:nth-child(2n) {
   color: #525252;
   font-size: 1.2em;
-  margin-top: 10px;
-  margin-left: 15px;
-  padding-bottom: 10px;
+  margin-top: -15px;
 }
 .profile--style .photographer-description .photographer__button {
   grid-column: 2;
@@ -665,7 +722,7 @@ body footer span {
 }
 .profile--style .photographer-description .photographer__photo {
   grid-column: 3;
-  grid-row: 1/5;
+  grid-row: 1/3;
   align-self: center;
   height: 250px;
   width: 250px;
@@ -676,13 +733,13 @@ body footer span {
 }
 .profile--style .photographer-description .tag-list {
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 3;
   margin-left: 10px;
   width: auto;
   justify-content: left;
   align-self: center;
   padding: 0px;
-  margin-top: 0px;
+  margin-top: -30px;
 }
 .profile--style .photographer-description .tag-list .tag--static {
   font-size: 1.1em;
@@ -692,17 +749,18 @@ body footer span {
   padding: 1px 9px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1072px) {
   .profile--style {
     padding: 0px;
     margin: 0px;
+    background-color: white;
   }
 
   .profile--style .photographer-description,
 .photrapher .photographer-description {
     font-size: 0.8em;
     margin: 0px;
-    grid-template-columns: 66% 0% 33%;
+    grid-template-columns: 63% 0% 33%;
   }
   .profile--style .photographer-description h1,
 .photrapher .photographer-description h1 {
@@ -710,27 +768,30 @@ body footer span {
     font-size: 2.4em;
     margin-bottom: 0px;
   }
-  .profile--style .photographer-description p:nth-child(2n),
-.profile--style .photographer-description p:nth-child(2n+1),
-.photrapher .photographer-description p:nth-child(2n),
-.photrapher .photographer-description p:nth-child(2n+1) {
-    margin-top: 0px;
+  .profile--style .photographer-description div p:nth-child(2n),
+.profile--style .photographer-description div p:nth-child(2n+1),
+.photrapher .photographer-description div p:nth-child(2n),
+.photrapher .photographer-description div p:nth-child(2n+1) {
+    margin-top: 5px;
     margin-bottom: 0px;
   }
-  .profile--style .photographer-description p:nth-child(2n),
-.photrapher .photographer-description p:nth-child(2n) {
+  .profile--style .photographer-description div p:nth-child(2n),
+.photrapher .photographer-description div p:nth-child(2n) {
     font-size: 1.3em;
   }
-  .profile--style .photographer-description p:nth-child(2n+1),
-.photrapher .photographer-description p:nth-child(2n+1) {
+  .profile--style .photographer-description div p:nth-child(2n+1),
+.photrapher .photographer-description div p:nth-child(2n+1) {
     font-size: 1em;
   }
   .profile--style .photographer-description .photographer__photo,
 .photrapher .photographer-description .photographer__photo {
-    align-self: flex-start;
     justify-self: center;
-    height: 120px;
-    width: 120px;
+    height: 105px;
+    width: 105px;
+  }
+  .profile--style .photographer-description .tag-list,
+.photrapher .photographer-description .tag-list {
+    margin-top: 0px;
   }
   .profile--style .photographer-description .tag-list .tag--static,
 .photrapher .photographer-description .tag-list .tag--static {
