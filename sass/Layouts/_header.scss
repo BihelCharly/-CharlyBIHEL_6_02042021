@@ -14,9 +14,7 @@
             text-decoration: none;
             font-family: "DM bold";
             letter-spacing: 1px;
-            &:visited {
-                color: inherit;
-            }
+            animation: test 2s ease-in-out;
         }
     }
     .header__navbar {

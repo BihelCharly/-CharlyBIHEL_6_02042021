@@ -35,6 +35,15 @@
                 object-fit: cover;
                 border: none;
                 border-radius: 5px;
+                animation: imgShowUp 1.5s ease-in;
+                @keyframes imgShowUp {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
             }
             .card__title {
                 grid-column: 1;

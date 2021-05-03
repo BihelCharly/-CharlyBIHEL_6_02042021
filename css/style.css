@@ -37,9 +37,7 @@ body footer span {
   text-decoration: none;
   font-family: "DM bold";
   letter-spacing: 1px;
-}
-.header .header__title .title:visited {
-  color: inherit;
+  animation: test 2s ease-in-out;
 }
 .header .header__navbar {
   width: 50%;
@@ -199,15 +197,19 @@ body footer span {
   width: 35%;
   margin-left: auto;
   margin-right: auto;
-  animation-name: modalopen;
-  animation-duration: var(0.8s);
+  animation: imgMoveDown 1s ease-in-out;
+}
+@keyframes imgMoveDown {
+  from {
+    top: -100px;
+  }
 }
 .modal-contact .close--form {
   cursor: pointer;
   position: fixed;
-  top: -35px;
+  top: -25px;
   right: 20px;
-  font-size: 5.5em;
+  font-size: 4.5em;
   color: white;
   -webkit-text-stroke: 3px #DB8876;
 }
@@ -339,6 +341,15 @@ body footer span {
   object-fit: cover;
   border: none;
   border-radius: 5px;
+  animation: imgShowUp 1.5s ease-in;
+}
+@keyframes imgShowUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .gallery .grid .grid-card .card__title {
   grid-column: 1;
@@ -482,6 +493,15 @@ body footer span {
   width: 700px;
   border-radius: 5px;
   box-shadow: 7px 2px 0px lightgray;
+  animation: imgShowUp 0.3s ease-in;
+}
+@keyframes imgShowUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-lightbox {
@@ -628,6 +648,18 @@ body footer span {
   border-radius: 100%;
   object-fit: cover;
   box-shadow: 0px 5px 8px 0px lightgrey;
+  animation: imgShowUp 2s ease-in;
+}
+@keyframes imgShowUp {
+  from {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .photographers .photographer__description * {
   padding: 3px 0px 3px 0px;
@@ -749,6 +781,15 @@ body footer span {
   border-radius: 100%;
   object-fit: cover;
   box-shadow: 0px 5px 8px 0px lightgrey;
+  animation: imgShowUp 1s ease-in;
+}
+@keyframes imgShowUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .profile--style .photographer-description .tag-list {
   grid-column: 1;
@@ -874,6 +915,7 @@ body a:visited {
   background-color: #DB8876;
   border-radius: 5px 5px 0px 0px;
   padding: 20px 0px 20px 0px;
+  z-index: 8;
 }
 .sticky-label span {
   font-family: "DM medium";

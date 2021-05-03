@@ -4,7 +4,16 @@
     height: 700px;
     width: 700px;
     border-radius: 5px;
-    box-shadow: 7px 2px 0px lightgray
+    box-shadow: 7px 2px 0px lightgray;
+    animation: imgShowUp 0.3s ease-in;
+    @keyframes imgShowUp {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 }
 
 .modal-lightbox {
