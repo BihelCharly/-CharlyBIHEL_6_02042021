@@ -42,6 +42,7 @@
 
 .filter-list {
     cursor: pointer;
+    appearance: none;
     width: 170px;
     color: $alt-color-bg;
     font-family: "Dm bold";
@@ -50,7 +51,6 @@
     border: none;
     border-radius: 5px;
     padding: 15px;
-    appearance: none;
 }
 
 .top {
@@ -69,4 +69,17 @@
     font-size: 1.1em;
     font-family: "Dm bold";
     cursor: pointer;
+}
+
+.btn--contact {
+    cursor: pointer;
+    width: 170px;
+    color: $alt-color-bg;
+    font-family: "Dm bold";
+    font-size: 1.2em;
+    background-color: $primary-color-bg;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    padding: 20px 8px;
 }

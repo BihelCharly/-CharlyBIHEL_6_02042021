@@ -86,13 +86,14 @@
 @media (max-width: 1272px) {
     .lightbox__photo img,
     .lightbox__photo video {
-        height: 300px;
-        width: 280px;
+        height: 250px;
+        width: 250px;
+        box-shadow: 3px 2px 0px lightgray
     }
     .prev,
     .next {
         font-size: 2em;
-        margin: -25px;
+        margin: -30px;
         -webkit-text-stroke: 1px white;
     }
     .close {

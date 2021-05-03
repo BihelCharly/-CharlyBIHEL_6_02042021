@@ -19,14 +19,6 @@ function lightBox() {
         element.setAttribute('preload', 'auto');
         return element;
     }
-    // TO TEST IF VALUE IN PARAMETER IS UNDEFINED
-    function result(test) {
-        if (test !== null && test !== undefined) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     // FOR EACH PHOTOS ON CLICK OPEN LIGHTBOX
     galeryPhotos.forEach(item => item.addEventListener('click', pushToLightBox));
@@ -51,9 +43,9 @@ function lightBox() {
     lightBoxArrows.forEach((event) => event.addEventListener("click", showNewSlide));
 
     // THIS FUNCTION RECEIVE PARAMETERS FROM FUNCTION FINDNEXTSLIDE
-    function showNewSlide(target) {
+    function showNewSlide(e) {
         // DOM ELEMENTS TO CHECK IF ARROW IS
-        let arrow = target.originalTarget.className;
+        let arrow = e.target.className;
         const newSlide = ((arrow) => {
             // PREVIOUS
             if (arrow == "prev") {

@@ -8,6 +8,7 @@ const modalForm = document.querySelector('.modal-contact');
 // INSIDE FORM
 let subBtn = document.querySelector('.form__button');
 let inputs = document.querySelectorAll('.modal-contact input');
+let inputsAndTextArea = document.querySelectorAll('.modal-contact form .form__data');
 let inputFirstName = document.querySelector('#first');
 let inputLastName = document.querySelector('#last');
 let inputEmail = document.querySelector('#email');
@@ -28,7 +29,7 @@ modalBtn.addEventListener('click', () => {
     document.body.scrollTop = 0;
 });
 
-// TO HIDE CONTACT FORM
+// TO HIDE/CLOSE CONTACT FORM
 btnCloseForm.addEventListener('click', closeForm);
 
 function closeForm() {
@@ -39,25 +40,39 @@ function closeForm() {
     modalBtn.style.display = 'block';
 }
 
+// TO CLEAN INPUTS
+function cleanErrors(area) {
+    area.nextElementSibling.textContent = '';
+    area.placeholder = '';
+    area.style = 'border: inherit';
+}
+
 // CHECK VALIDATION
 subBtn.addEventListener('click', event => {
     event.preventDefault();
     let state;
     // CHECK IF INPUTS VALUE ARE > 2
     inputs.forEach(element => {
-        // IF YES
+        // IF EVERYTHING IS OKAY
         if (element.value.length > 2 && inputEmail.value.match(regExEmail)) {
             state = true;
             return state;
-            // OTHERWISE
-        } else {
-            element.nextElementSibling.textContent = 'Merci de remplir ce champs';
-            element.placeholder = 'Veuillez remplir ce champ';
+            // TO CHECK FIRSTNAME AND LASTNAME
+        } else if (element.value.length < 2) {
+            element.nextElementSibling.textContent = '3 charactères minimum';
+            element.placeholder = '3 charactères minimum';
+            inputEmail.nextElementSibling.textContent = 'Veuillez définir un email';
+            inputEmail.placeholder = 'Veuillez définir un email';
             element.style = 'border: 4px solid #901C1C';
             state = false;
             return state;
+            // TO CHECK EMAIL
+        } else if (element.value.length > 2 && !inputEmail.value.match(regExEmail)) {
+            state = 'mail';
+            return state;
         }
     });
+    // IF EVERYTHING IS OKAY
     if (state === true) {
         console.log(returnFormInfos(inputFirstName.value, inputLastName.value, inputEmail.value, inputSubject.value));
         closeForm();
@@ -67,8 +82,13 @@ subBtn.addEventListener('click', event => {
             element.placeholder = '';
             element.style = 'border: inherit';
         });
-    } else {
-        console.log('Merci de remplir les champs');
+        // IF EMAIL IS WRONG
+    } else if (state === 'mail') {
+        inputs.forEach(element => {
+            cleanErrors(element);
+        });
+        inputEmail.nextElementSibling.textContent = 'Veuillez définir un email';
+        inputEmail.style = 'border: 4px solid #901C1C';
     }
 });
 

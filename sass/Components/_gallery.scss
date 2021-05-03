@@ -20,6 +20,7 @@
             font-size: 1.6em;
             margin-top: 0px;
             line-height: 0px;
+            grid-template-columns: 66% 11% 18% 5%;
             &:hover {
                 .card__photo {
                     transition: box-shadow 0.5s ease-in;
@@ -55,11 +56,14 @@
             }
             .fa-heart {
                 color: $secondary-color-ft;
+                background-color: white;
                 grid-column: 4;
                 grid-row: 2;
                 align-self: center;
                 cursor: pointer;
                 border: 0px;
+                padding: 0px;
+                text-align: right;
             }
         }
     }
@@ -124,7 +128,6 @@
             width: auto;
             color: $secondary-color-ft;
             font-size: 70px;
-            transition: 0.6s ease-in;
             border-radius: 0 3px 3px 0;
             user-select: none;
             -webkit-user-select: none;

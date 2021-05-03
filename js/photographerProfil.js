@@ -82,7 +82,7 @@ loadJSON(function(json) {
         }
     });
     // ADD TOTAL LIKES IN THE DOM
-    labelTotalLikes.textContent = totalLikes;
+    labelTotalLikes.textContent = totalLikes + " ";
     // LIKES COUNTERS IN ./JS/LIKESCOUNTERS.JS
     likesCounters();
     // LIGHTBOX IN ./JS/LIGHTBOX.JS

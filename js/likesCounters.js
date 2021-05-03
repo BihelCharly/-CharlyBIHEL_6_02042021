@@ -24,7 +24,7 @@ function likesCounters() {
             let totalLikesFstChildContent = totalLikesFstChild.textContent;
             let totalLikesFstChildParsed = parseInt(totalLikesFstChildContent);
             let upTotalCounters = totalLikesFstChildParsed + 1;
-            let totalCountersString = upTotalCounters.toString();
+            let totalCountersString = upTotalCounters.toString() + " ";
             var stringToNode = document.createTextNode(totalCountersString);
             totalLikes.replaceChild(stringToNode, totalLikesFstChild);
         });

@@ -31,7 +31,7 @@
                 </div>
                 <ul class="tag-list" tabindex="4">
                 </ul>
-                <button id="button-form" class="photographer__button button--static" type="submit" value="Contact" tabindex="5">Contactez moi</button>
+                <button id="button-form" class="photographer__button btn--contact" type="submit" value="Contact" tabindex="5">Contactez moi</button>
                 <img class="photographer__photo" title="Photo de profil" alt="Photo de profil" tabindex="6">
             </div>
         </section>
@@ -55,25 +55,23 @@
         <span class="close--form">&times;</span>
         <p>Contactez-moi</p>
         <p></p>
-        <form action="" method="get" aria-label="Formulaire de contact">
-            <div class="formData">
-                <label for="first">Prénom</label><br>
+        <form action="fomulaire" method="get" aria-label="Formulaire de contact">
+            <div class="form__data">
+                <label for="first">Prénom</label>
                 <input class="value-first text-control" type="text" id="first" name="first" minlength="2" required/>
                 <span class="error"></span>
             </div>
-
-            <div class="formData">
-                <label for="last">Nom</label><br>
+            <div class="form__data">
+                <label for="last">Nom</label>
                 <input class="value-last text-control" type="text" id="last" name="last" minlength="2" required/>
                 <span class="error"></span>
             </div>
-
-            <div class="formData">
-                <label for="email">E-mail</label><br>
+            <div class="form__data">
+                <label for="email">E-mail</label>
                 <input class="value-email text-control" type="email" id="email" name="email" required/>
                 <span class="error"></span>
             </div>
-            <div class="formData">
+            <div class="form__data">
                 <label for="subject">Votre message</label>
                 <textarea id="subject" name="subject" style="height:200px"></textarea>
             </div>
