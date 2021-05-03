@@ -28,7 +28,6 @@ function lightBox() {
         }
     }
 
-
     // FOR EACH PHOTOS ON CLICK OPEN LIGHTBOX
     galeryPhotos.forEach(item => item.addEventListener('click', pushToLightBox));
 
@@ -48,6 +47,7 @@ function lightBox() {
         body.style = "overflow-y: hidden;overflow-x: hidden;";
     }
 
+    // FOR ARROWS INSIDE LIGHTBOX
     lightBoxArrows.forEach((event) => event.addEventListener("click", showNewSlide));
 
     // THIS FUNCTION RECEIVE PARAMETERS FROM FUNCTION FINDNEXTSLIDE
@@ -79,23 +79,25 @@ function lightBox() {
         let collection = gridGallery.children;
         for (i = 0; i < collection.length; i++) {
             if (collection[i].firstChild.firstChild.title == lightBoxTxt.textContent) {
-                console.log(collection[i].previousSibling.firstChild);
-                console.log(collection[i].firstChild);
-                //console.log(collection[i].parentNode.children);
-                const prevNode = setNodes(collection[i])[0];
-                const nextNode = setNodes(collection[i])[1];
+                const prevNode = setNodes(collection[i], collection)[0];
+                const nextNode = setNodes(collection[i], collection)[1];
                 let prevClonedNode = prevNode.firstChild.cloneNode(true);
                 let nextClonedNode = nextNode.firstChild.cloneNode(true);
                 return [prevClonedNode, nextClonedNode];
             }
         }
     }
+
     // FUNCTION TO SET NEXT AND PREV NODES
-    function setNodes(element) {
+    function setNodes(element, collection) {
         let array = [];
-        if (element.previousSibling.firstChild !== null && element.nextSibling.firstChild == null) {
+        if (element.previousSibling !== null && element.nextSibling == null) {
             let prevNode = element.previousSibling.firstChild;
             let nextNode = collection[0].firstChild;
+            array.push(prevNode, nextNode);
+        } else if (element.previousSibling == null) {
+            let prevNode = element.parentNode.lastChild.firstChild;
+            let nextNode = element.nextSibling.firstChild;
             array.push(prevNode, nextNode);
         } else if (element.previousSibling.firstChild == null && element.nextSibling.firstChild !== null) {
             let prevNode = element.parentNode.lastChild.firstChild;

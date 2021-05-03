@@ -76,7 +76,7 @@ loadJSON(function(json) {
         // IF ID FROM MEDIA OBJECT IS = ID FROM PHOTOGRAPHERS OBJECT
         if (media.photographerId === photographer.id) {
             // FACTORY METHOD TO BUILD CARDS IN ./JS/FACTORY.JS
-            const builder = Factory(photographer, media, media.price, media.likes, media.date, media.tags);
+            const builder = Factory(photographer, media, media.price, media.likes, media.date);
             createNewCard(builder.cardMedia, builder.cardContainer, builder.cardLightbox, builder.cardTitle, builder.cardPrice, builder.cardLikes, builder.cardIcon);
             totalLike(media.likes);
         }

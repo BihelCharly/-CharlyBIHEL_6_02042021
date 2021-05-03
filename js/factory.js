@@ -1,4 +1,4 @@
-function Factory(object, media, price, likes, date, tags) {
+function Factory(object, media, price, likes, date) {
 
     // STEP 1 - CREATE OBJ TYPE FROM MEDIA
     this.createMediaType = function(media) {
