@@ -42,10 +42,10 @@ loadJSON(function(json) {
         firstDivInsideCards.append(divCardsLink);
         //// ↳ CREATE IMG
         let photographerPortrait = new Image();
-        photographerPortrait.src = "./public/ID/" + element.portrait;
-        photographerPortrait.className = "photographer__photo";
         photographerPortrait.title = "Portrait de " + element.name;
         photographerPortrait.alt = "Portrait de " + element.name;
+        photographerPortrait.src = "./public/ID/" + element.portrait;
+        photographerPortrait.className = "photographer__photo";
         divCardsLink.append(photographerPortrait);
         //// ↳ CREATE NAME
         let divCardsPhotographerName = document.createElement("h2");
@@ -94,18 +94,6 @@ loadJSON(function(json) {
     // CALL FILTERBYTAGS FROM ./JS/FILTERBYTAGS.JS
     filterByTags();
 });
-
-
-// BUTTON TO GO THE TOP
-window.onscroll = function() { scrollFunction(); };
-
-function scrollFunction() {
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-        toTopBtn.style.display = "block";
-    } else {
-        toTopBtn.style.display = "none";
-    }
-}
 
 toTopBtn.addEventListener('click', goToTop);
 
