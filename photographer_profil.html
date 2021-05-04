@@ -78,13 +78,13 @@
             <button type="submit" class="form__button" value="Envoyer" tabindex="11">Envoyer</button>
         </form>
     </div>
-    <div class="modal-lightbox" aria-label="Agrandir les images">
+    <div class="modal-lightbox" aria-label="Agrandir les images" tabindex="1">
         <div class="lightbox-content">
-            <div class="lightbox__photo"></div>
-            <p class="lightbox__caption"></p>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            <span class="close cursor">&times;</span>
+            <div class="lightbox__photo" tabindex="2"></div>
+            <p class="lightbox__caption" tabindex="3"></p>
+            <a class="prev" aria-label="Photo précédente" tabindex="4">&#10094;</a>
+            <a class="next" aria-label="Photo suivante" tabindex="5">&#10095;</a>
+            <span class="close cursor" aria-label="Fermer" tabindex="6">&times;</span>
         </div>
     </div>
     <footer>
