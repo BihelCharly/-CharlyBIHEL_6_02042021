@@ -717,6 +717,7 @@ body footer span {
     font-size: 1.5em;
     left: 50%;
     transform: translate(-50%, 0%);
+    z-index: 6;
   }
 }
 @media (min-width: 1921px) {

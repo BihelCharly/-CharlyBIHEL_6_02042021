@@ -1,6 +1,9 @@
 function lightBox() {
 
     let body = document.querySelector("body");
+    let header = document.querySelector("header");
+    let main = document.querySelector("main");
+    let footer = document.querySelector("footer");
     let lightBox = document.querySelector(".modal-lightbox");
     let closeLightBox = document.querySelector(".close");
     let lightBoxImg = document.querySelector(".lightbox__photo");
@@ -20,11 +23,27 @@ function lightBox() {
         return element;
     }
 
+    // TO DISABLE BG ELEMENTS
+    function disableBG() {
+        header.style.display = "none";
+        main.style.display = "none";
+        footer.style.display = "none";
+    }
+
+    // TO ENABLE BG ELEMENTS
+    function enableBG() {
+        header.style.display = "";
+        main.style.display = "";
+        footer.style.display = "";
+    }
+
     // FOR EACH PHOTOS ON CLICK OPEN LIGHTBOX
     galeryPhotos.forEach(item => item.addEventListener('click', pushToLightBox));
 
     // CLONE CLIKED NODE ELEMENT TO THE LIGHTBOX
     function pushToLightBox() {
+        // BG
+        disableBG();
         // CLEAN
         cleanElements();
         // CLONE
@@ -105,6 +124,7 @@ function lightBox() {
 
     // TO CLOSE THE LIGHTBOX
     closeLightBox.addEventListener("click", function() {
+        enableBG();
         cleanElements();
         lightBox.style = "display:none";
         body.style = "overflow-y: visible;overflow-x: visible;";
