@@ -69,6 +69,7 @@ loadJSON(function(json) {
         //// ↳ CREATE TAGLINE
         let cardsDescriptionPrice = document.createElement("p");
         cardsDescriptionPrice.innerHTML = element.price + "€/jour";
+        divCardsDescription.setAttribute("aria-label", "Tarif de" + element.price + "euros par jour");
         divCardsDescription.append(cardsDescriptionPrice);
 
         // 3 ⇒ THIRD DIV INSIDE CARD
@@ -78,6 +79,7 @@ loadJSON(function(json) {
         //// ↳ CREATE UL
         let ulTaglist = document.createElement("ul");
         ulTaglist.className = "tag-list";
+        divCardsDescription.setAttribute("aria-label", "Catégories de tri pour les photographes");
         ulTaglist.setAttribute("tabindex", "7");
         divCardsTags.append(ulTaglist);
         //// ↳ CREATE LI + BUTTONS

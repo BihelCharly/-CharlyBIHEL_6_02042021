@@ -61,6 +61,7 @@ loadJSON(function(json) {
         photographerPhoto.alt = 'Photo de profil de ' + name;
         // PRICE IN STICKY LABEL
         photographerPrice.textContent = price + "€ / jour";
+        photographerPrice.setAttribute("aria-label", "Tarif de" + price + "euros par jour");
         // PARAMETERS FROM JSON
     })(photographer.name, photographer.city, photographer.country, photographer.tagline, photographer.tags, photographer.portrait, photographer.price);
 

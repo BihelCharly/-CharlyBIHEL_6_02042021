@@ -18,8 +18,8 @@
 
 <body>
     <header class="header photographer--page">
-        <div class="header__title photographer--page" aria-label="FishEye">
-            <a class="title" href="index.html" tabindex="1">Fish<img class="logo" src="public/logo.png" alt="E" title="logo">ye</a>
+        <div class="header__title photographer--page">
+            <a class="title" href="index.html" tabindex="1" aria-label="Retour page accueil">Fish<img class="logo" src="public/logo.png" alt="E" title="logo">ye</a>
     </header>
     <main>
         <section class="photographer profile--style">
@@ -51,31 +51,31 @@
             </div>
         </section>
     </main>
-    <div class="modal-contact" name="contact">
-        <span class="close--form">&times;</span>
-        <p>Contactez-moi</p>
+    <div class="modal-contact" name="contact" aria-label="Formulaire de contact" tabindex="1">
+        <span class="close--form" aria-label="Fermer le formulaire" tabindex="12">&times;</span>
+        <p tabindex="2">Contactez-moi</p>
         <p></p>
-        <form action="fomulaire" method="get" aria-label="Formulaire de contact">
+        <form action="fomulaire" method="get">
             <div class="form__data">
-                <label for="first">Prénom</label>
-                <input class="value-first text-control" type="text" id="first" name="first" minlength="2" required/>
+                <label for="first" tabindex="3">Prénom</label>
+                <input class="value-first text-control" type="text" id="first" name="first" minlength="2" tabindex="4" required/>
                 <span class="error"></span>
             </div>
             <div class="form__data">
-                <label for="last">Nom</label>
-                <input class="value-last text-control" type="text" id="last" name="last" minlength="2" required/>
+                <label for="last" tabindex="5">Nom</label>
+                <input class="value-last text-control" type="text" id="last" name="last" minlength="2" tabindex="6" required/>
                 <span class="error"></span>
             </div>
             <div class="form__data">
-                <label for="email">E-mail</label>
-                <input class="value-email text-control" type="email" id="email" name="email" required/>
+                <label for="email" tabindex="7">E-mail</label>
+                <input class="value-email text-control" type="email" id="email" name="email" tabindex="8" required/>
                 <span class="error"></span>
             </div>
             <div class="form__data">
-                <label for="subject">Votre message</label>
-                <textarea id="subject" name="subject" style="height:200px"></textarea>
+                <label for="subject" tabindex="9">Votre message</label>
+                <textarea id="subject" name="subject" style="height:200px" tabindex="10"></textarea>
             </div>
-            <button type="submit" class="form__button" value="Envoyer">Envoyer</button>
+            <button type="submit" class="form__button" value="Envoyer" tabindex="11">Envoyer</button>
         </form>
     </div>
     <div class="modal-lightbox" aria-label="Agrandir les images">
