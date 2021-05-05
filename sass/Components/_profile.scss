@@ -79,6 +79,9 @@
 }
 
 @media (max-width: 1072px) {
+    .top {
+        display: none;
+    }
     .profile--style {
         padding: 0px;
         margin: 0px;

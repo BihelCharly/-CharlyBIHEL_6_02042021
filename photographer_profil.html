@@ -17,40 +17,6 @@
 </head>
 
 <body>
-    <header class="header photographer--page">
-        <div class="header__title photographer--page">
-            <a class="title" href="index.html" tabindex="1" aria-label="Retour page accueil">Fish<img class="logo" src="public/logo.png" alt="E" title="logo">ye</a>
-    </header>
-    <main>
-        <section class="photographer profile--style">
-            <div class="photographer-description" aria-label="Description de Mimi Keel">
-                <h1 tabindex="2"></h1>
-                <div tabindex="3">
-                    <p></p>
-                    <p></p>
-                </div>
-                <ul class="tag-list" tabindex="4">
-                </ul>
-                <button id="button-form" class="photographer__button btn--contact" type="submit" value="Contact" tabindex="5">Contactez moi</button>
-                <img class="photographer__photo" title="Photo de profil" alt="Photo de profil" tabindex="6">
-            </div>
-        </section>
-        <div class="sticky-label" tabindex="7">
-            <span class="total-likes">&ensp;<i class="fas fa-heart"></i></span>
-            <span class="price">/ jour</span>
-        </div>
-        <section class="gallery">
-            <label for=filter-by tabindex="8">Trier par</label>
-            <select name="filter" class="filter-list" aria-label="Liste pour trier les photos" tabindex="9">
-                    <option value="popularity">Popularité</option>
-                    <option value="date">Date</option>
-                    <option value="title">Titre</option>
-                </select>
-            <div class="grid">
-                <!-- Photos sent with JS -->
-            </div>
-        </section>
-    </main>
     <div class="modal-contact" name="contact" aria-label="Formulaire de contact" tabindex="1">
         <span class="close--form" aria-label="Fermer le formulaire" tabindex="12">&times;</span>
         <p tabindex="2">Contactez-moi</p>
@@ -87,6 +53,40 @@
             <span class="close cursor" aria-label="Fermer" tabindex="6">&times;</span>
         </div>
     </div>
+    <header class="header photographer--page">
+        <div class="header__title photographer--page">
+            <a class="title" href="index.html" tabindex="1" aria-label="Retour page accueil">Fish<img class="logo" src="public/logo.png" alt="E" title="logo">ye</a>
+    </header>
+    <main>
+        <section class="photographer profile--style">
+            <div class="photographer-description" aria-label="Description de Mimi Keel">
+                <h1 tabindex="2"></h1>
+                <div tabindex="3">
+                    <p></p>
+                    <p></p>
+                </div>
+                <ul class="tag-list" tabindex="4">
+                </ul>
+                <button id="button-form" class="photographer__button btn--contact" type="submit" value="Contact" tabindex="5">Contactez moi</button>
+                <img class="photographer__photo" title="Photo de profil" alt="Photo de profil" tabindex="6">
+            </div>
+        </section>
+        <div class="sticky-label" tabindex="7">
+            <span class="total-likes">&ensp;<i class="fas fa-heart"></i></span>
+            <span class="price">/ jour</span>
+        </div>
+        <section class="gallery">
+            <label for=filter-by tabindex="8">Trier par</label>
+            <select name="filter" class="filter-list" aria-label="Liste pour trier les photos" tabindex="9">
+                    <option value="popularity">Popularité</option>
+                    <option value="date">Date</option>
+                    <option value="title">Titre</option>
+                </select>
+            <div class="grid">
+                <!-- Photos sent with JS -->
+            </div>
+        </section>
+    </main>
     <footer>
         <span>© 2021 Charly BIHEL. All rights reserved.</span>
     </footer>
