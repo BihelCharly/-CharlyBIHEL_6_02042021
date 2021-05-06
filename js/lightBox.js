@@ -38,33 +38,45 @@ function lightBox() {
     }
 
     // FOR EACH PHOTOS ON CLICK OPEN LIGHTBOX
-    galeryPhotos.forEach(item => item.addEventListener('click', pushToLightBox));
+    galeryPhotos.forEach(item => item.addEventListener('click', function(e) {
+        pushToLightBox(item);
+    }));
+    galeryPhotos.forEach(item => item.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            pushToLightBox(item);
+        }
+    }));
 
     // CLONE CLIKED NODE ELEMENT TO THE LIGHTBOX
-    function pushToLightBox() {
-        // BG
-        disableBG();
+    function pushToLightBox(e) {
         // CLEAN
         cleanElements();
         // CLONE
-        let cloneNode = this.lastChild.cloneNode(true);
+        let cloneNode = e.lastChild.cloneNode(true);
         // IF ELEMENT IS A VIDEO THEN SET VIDEO ATTRIBUTES
         if (cloneNode.tagName == "VIDEO") {
             setVideoMode(cloneNode);
         }
         lightBoxImg.append(cloneNode);
-        lightBoxTxt.innerHTML = this.lastChild.title;
+        lightBoxTxt.innerHTML = e.lastChild.title;
         lightBox.style = "display:block";
         body.style = "overflow-y: hidden;overflow-x: hidden;";
+        // BG
+        disableBG();
     }
 
     // FOR ARROWS INSIDE LIGHTBOX
     lightBoxArrows.forEach((event) => event.addEventListener("click", showNewSlide));
+    lightBoxArrows.forEach((event) => event.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            showNewSlide(event);
+        }
+    }));
 
     // THIS FUNCTION RECEIVE PARAMETERS FROM FUNCTION FINDNEXTSLIDE
-    function showNewSlide(e) {
+    function showNewSlide(event) {
         // DOM ELEMENTS TO CHECK IF ARROW IS
-        let arrow = e.target.className;
+        let arrow = event.target.className;
         const newSlide = ((arrow) => {
             // PREVIOUS
             if (arrow == "prev") {
@@ -123,10 +135,17 @@ function lightBox() {
     }
 
     // TO CLOSE THE LIGHTBOX
-    closeLightBox.addEventListener("click", function() {
+    closeLightBox.addEventListener("click", closeLightBoxModal);
+    closeLightBox.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            closeLightBoxModal();
+        }
+    });
+
+    function closeLightBoxModal() {
         enableBG();
         cleanElements();
         lightBox.style = "display:none";
         body.style = "overflow-y: visible;overflow-x: visible;";
-    });
+    }
 }

@@ -9,8 +9,11 @@ function likesCounters() {
         let cardHeart = element.querySelector("button");
         let cardHeartValue = cardHeart.value;
         let cardCounter = element.querySelector(".card__likes");
-        // ON CLICK
-        cardHeart.addEventListener('click', function() {
+
+        // ON CLICK + ENTER
+        cardHeart.addEventListener('click', upCounters);
+
+        function upCounters() {
             // UP COUNTERS FOR HIMSELF
             cardHeartValueParsed = parseInt(cardHeartValue);
             let upCounters = cardHeartValueParsed + i++;
@@ -27,6 +30,6 @@ function likesCounters() {
             let totalCountersString = upTotalCounters.toString() + " ";
             var stringToNode = document.createTextNode(totalCountersString);
             totalLikes.replaceChild(stringToNode, totalLikesFstChild);
-        });
+        }
     });
 }
